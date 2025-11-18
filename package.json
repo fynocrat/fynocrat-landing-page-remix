@@ -8,7 +8,7 @@
     "typecheck": "react-router typegen && tsc",
     "tw:build": "npx @tailwindcss/cli -i ./app/tailwind.css -o ./app/tailwind-output.css",
     "tw:watch": "npx @tailwindcss/cli -i ./app/tailwind.css -o ./app/tailwind-output.css --watch",
-    "dev": "npm run tw:watch & npm run dev:app",
+    "dev": "start /B npm run tw:watch & npm run dev:app",
     "dev:app": "react-router dev"
   },
   "dependencies": {

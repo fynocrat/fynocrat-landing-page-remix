@@ -12,6 +12,7 @@ import {
   TextInput,
   Textarea,
   useMantineTheme,
+  Space,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -73,30 +74,41 @@ export default function Home() {
       }}
     >
       {success && (
-        <div className='success-popup'>
+        <div className="success-popup">
           ✔ Your details have been received successfully. Our research team
           will connect with you soon with insights curated exclusively for
           serious investors like you.
         </div>
       )}
 
-      <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
+      <Container size="xl" style={{ maxWidth: 1400, padding: 0 }}>
         {/* Top Bar */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
-            paddingLeft: isMobile ? 20 : 100,
-            paddingRight: isMobile ? 20 : 100,
+            alignItems: "center", // aligns logo + SEBI text horizontally center
+            paddingLeft: isMobile ? 30 : 140,
+            paddingRight: isMobile ? 30 : 140,
             marginBottom: isMobile ? 10 : 25,
+            marginTop: isMobile ? 20 : 30,
           }}
         >
-          <Image src='/logo.png' alt='Fynocrat' width={isMobile ? 120 : 150} />
+          <Image
+            src="/logo.png"
+            alt="Fynocrat"
+            style={{
+              width: isMobile ? 180 : 190,
+              height: "auto",
+              objectFit: "contain",
+              // ❌ REMOVE marginTop and marginBottom
+            }}
+          />
+
           <Text
             style={{
               color: "#fff",
-              fontWeight: 600,
+              fontWeight: 100,
               fontSize: isMobile ? 12 : 24,
               opacity: 0.9,
             }}
@@ -111,7 +123,7 @@ export default function Home() {
             display: "grid",
             gridTemplateColumns: isMobile ? "1fr" : "48% 40%",
             columnGap: isMobile ? 20 : 140,
-            alignItems: "start",
+            alignItems: "center",
             paddingLeft: isMobile ? 20 : 100,
             paddingRight: isMobile ? 20 : 100,
           }}
@@ -120,15 +132,21 @@ export default function Home() {
           <div style={{ paddingTop: isMobile ? 20 : 60 }}>
             <Title
               style={{
+                displayflex: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
                 color: "#fff",
-                fontSize: isMobile ? 30 : 36,
+                fontSize: isMobile ? 30 : 40,
                 fontWeight: 700,
                 lineHeight: 1.15,
-                marginBottom: 20,
+                marginBottom: 30,
+                minHeight: 120,
+                paddingTop: isMobile ? 0 : 20,
               }}
             >
               You Don’t Need More Tips.
               <br />
+              
               You Need Real Research.
             </Title>
 
@@ -136,7 +154,7 @@ export default function Home() {
               style={{
                 color: "#FFFFFF",
                 opacity: 0.82,
-                fontSize: isMobile ? 11 : 14,
+                fontSize: isMobile ? 11 : 13,
                 lineHeight: 1.7,
                 marginTop: 10,
                 maxWidth: 600,
@@ -150,7 +168,7 @@ export default function Home() {
               style={{
                 color: "#FFFFFF",
                 opacity: 0.82,
-                fontSize: isMobile ? 14 : 15,
+                fontSize: isMobile ? 14 : 13,
                 lineHeight: 1.7,
                 marginTop: 6,
                 maxWidth: 520,
@@ -160,36 +178,44 @@ export default function Home() {
               them.
             </Text>
 
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: isMobile ? 12 : 20,
-                marginTop: 10,
-              }}
-            >
-              <div>
-                <Text
-                  style={{
-                    color: "white",
-                    fontSize: isMobile ? 70 : 110,
-                    fontWeight: 700,
-                    lineHeight: 1,
-                  }}
-                >
-                  4.7
-                </Text>
-              </div>
+            <Space h={isMobile ? 30 : 100} />
 
+            <div style={{ display: "flex", alignItems: "baseline" }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: isMobile ? 70 : 110,
+                  fontWeight: 700,
+                  lineHeight: 1,
+                  marginRight: 8,
+                }}
+              >
+                4.7
+              </Text>
+
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: isMobile ? 22 : 32,
+                  fontWeight: 500,
+                  opacity: 0.9,
+                  lineHeight: 1.1,
+                }}
+              >
+                /5
+              </Text>
+
+              <Space w={isMobile ? 10 : 20} />
               <div
                 style={{
                   width: isMobile ? 150 : 220,
-                  height: isMobile ? 40 : 60,
                 }}
               >
-                <Image src='/rating-stars.png' alt='Rating' />
+                <Image src="/rating-stars.png" alt="Rating" />
               </div>
             </div>
+
+            {/* Stars */}
           </div>
 
           {/* Right column: Contact form */}
@@ -197,60 +223,76 @@ export default function Home() {
             style={{
               marginTop: isMobile ? 20 : -10,
               display: "flex",
-              justifyContent: "flex-end",
+              flexDirection: "column",
+              alignItems: "flex-end",
+              justifyContent: "flex-start",
             }}
           >
+            {/* ⭐ Place the heading here */}
+            <Text
+              style={{
+                color: "#fff",
+                fontWeight: 600,
+                fontSize: isMobile ? 20 : 24,
+                marginBottom: isMobile ? 10 : 20,
+                textAlign: "right",
+                maxWidth: 920,
+              }}
+            >
+              Want Access to Our Next Stock Idea?
+            </Text>
+
             <Paper
-              radius='md'
-              shadow='xl'
-              className='form-box'
+              radius="md"
+              shadow="xl"
+              className="form-box"
               style={{ width: isMobile ? "100%" : 420, maxWidth: 420 }}
             >
               {/* Keep plain form so server action receives data */}
-              <form method='post' style={{ width: "100%" }}>
+              <form method="post" style={{ width: "100%" }}>
                 <Stack>
                   <TextInput
-                    name='email'
-                    label='Email'
-                    placeholder='your@email.com'
+                    name="name"
+                    label="Name"
+                    placeholder="john doe"
                     required
-                    radius='md'
+                    radius="md"
                     classNames={{ input: "form-input", label: "form-label" }}
                   />
 
                   <TextInput
-                    name='name'
-                    label='Name'
-                    placeholder='John Doe'
+                    name="email"
+                    label="Email"
+                    placeholder="your@email.com"
                     required
-                    radius='md'
+                    radius="md"
                     classNames={{ input: "form-input", label: "form-label" }}
                   />
 
                   <TextInput
-                    name='phone'
-                    label='Phone'
-                    placeholder='+91 98765 43210'
+                    name="phone"
+                    label="Phone"
+                    placeholder="+91 98765 43210"
                     required
-                    radius='md'
+                    radius="md"
                     classNames={{ input: "form-input", label: "form-label" }}
                   />
 
                   <Textarea
-                    name='message'
-                    label='Your message'
-                    placeholder='I want to order your goods'
+                    name="message"
+                    label="Your message"
+                    placeholder="I am interested in receiving stock ideas."
                     required
                     minRows={4}
-                    radius='md'
+                    radius="md"
                     classNames={{ input: "form-input", label: "form-label" }}
                   />
 
                   {/* hidden recaptcha token input; value updated on client */}
                   <input
-                    id='g-recaptcha-response'
-                    type='hidden'
-                    name='g-recaptcha-response'
+                    id="g-recaptcha-response"
+                    type="hidden"
+                    name="g-recaptcha-response"
                     value={recaptchaToken ?? ""}
                     readOnly
                   />
@@ -269,11 +311,11 @@ export default function Home() {
                   )}
 
                   <Button
-                    type='submit'
+                    type="submit"
                     fullWidth
-                    radius='md'
+                    radius="md"
                     disabled={!captchaChecked}
-                    className='form-button'
+                    className="form-button"
                     style={{ height: 45, fontSize: 16, fontWeight: 600 }}
                   >
                     Send Me Stock Idea
