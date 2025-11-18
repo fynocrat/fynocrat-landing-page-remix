@@ -1,0 +1,23 @@
+/* app/tailwind.css */
+
+/* Tailwind v4: import the preflight (replaces `@tailwind base`) */
+@import "tailwindcss/preflight";
+
+/* If you had custom components, define them with @layer components { ... } */
+/* Example:
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md bg-blue-600 text-white;
+  }
+}
+*/
+
+/* Utilities (keep this) */
+@tailwind utilities;
+
+/* helper for full-height */
+html,
+body,
+#root {
+  height: 100%;
+}
