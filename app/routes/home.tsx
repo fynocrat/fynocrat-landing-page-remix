@@ -279,11 +279,13 @@ export default function Home() {
         <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
+              display: "grid",
+              gridTemplateColumns: isMobile ? "1fr" : "48% 40%",
+              columnGap: isMobile ? 20 : 140,
               alignItems: "center",
-              paddingLeft: isMobile ? 30 : 140,
-              paddingRight: isMobile ? 30 : 140,
+
+              paddingLeft: isMobile ? 20 : 100,
+              paddingRight: isMobile ? 20 : 100,
               marginBottom: isMobile ? 10 : 25,
               marginTop: isMobile ? 20 : 30,
             }}
@@ -304,6 +306,7 @@ export default function Home() {
                 fontWeight: 100,
                 fontSize: isMobile ? 12 : 24,
                 opacity: 0.9,
+                textAlign: "center",
               }}
             >
               SEBI Registration No. – INH000011918
@@ -371,7 +374,6 @@ export default function Home() {
 
               <Space h={isMobile ? 30 : 100} />
 
-              {/* Rating */}
               <div style={{ display: "flex", alignItems: "baseline" }}>
                 <Text
                   style={{
@@ -411,7 +413,7 @@ export default function Home() {
                 marginTop: isMobile ? 20 : -10,
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
+                alignItems: "center",
                 justifyContent: "flex-start",
               }}
             >
