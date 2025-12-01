@@ -19,6 +19,7 @@ import {
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import ReCAPTCHA from "react-google-recaptcha";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 
 type Props = {
   setFormOpen: (open: boolean) => void;
@@ -28,23 +29,23 @@ const IconTrendingUp = (props: { size?: number }) => (
   <svg
     width={props.size ?? 48}
     height={props.size ?? 48}
-    viewBox='0 0 24 24'
-    fill='none'
+    viewBox="0 0 24 24"
+    fill="none"
     aria-hidden
   >
     <path
-      d='M3 17l6-6 4 4 8-8'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M3 17l6-6 4 4 8-8"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
-      d='M21 21v-4h-4'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M21 21v-4h-4"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -53,23 +54,23 @@ const IconArrowBounce = (props: { size?: number }) => (
   <svg
     width={props.size ?? 48}
     height={props.size ?? 48}
-    viewBox='0 0 24 24'
-    fill='none'
+    viewBox="0 0 24 24"
+    fill="none"
     aria-hidden
   >
     <path
-      d='M3 12h6l2-3 4 6 6-9'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M3 12h6l2-3 4 6 6-9"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
-      d='M21 21a3 3 0 0 0-3-3'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M21 21a3 3 0 0 0-3-3"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -78,16 +79,16 @@ const IconZap = (props: { size?: number }) => (
   <svg
     width={props.size ?? 48}
     height={props.size ?? 48}
-    viewBox='0 0 24 24'
-    fill='none'
+    viewBox="0 0 24 24"
+    fill="none"
     aria-hidden
   >
     <path
-      d='M13 2L3 14h7l-1 8 10-12h-7l1-8z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -96,23 +97,23 @@ const IconRocket = (props: { size?: number }) => (
   <svg
     width={props.size ?? 48}
     height={props.size ?? 48}
-    viewBox='0 0 24 24'
-    fill='none'
+    viewBox="0 0 24 24"
+    fill="none"
     aria-hidden
   >
     <path
-      d='M12 2s-4 4-7 7c-1.5 1.5-3 6-3 6s4-1.2 5.5-2.7C11 11 17 7 17 7s-1.8-1.6-5-5z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M12 2s-4 4-7 7c-1.5 1.5-3 6-3 6s4-1.2 5.5-2.7C11 11 17 7 17 7s-1.8-1.6-5-5z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
-      d='M7 17s-1 3 3 3 3-3 3-3'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M7 17s-1 3 3 3 3-3 3-3"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -121,23 +122,23 @@ const IconShieldCheck = (props: { size?: number }) => (
   <svg
     width={props.size ?? 48}
     height={props.size ?? 48}
-    viewBox='0 0 24 24'
-    fill='none'
+    viewBox="0 0 24 24"
+    fill="none"
     aria-hidden
   >
     <path
-      d='M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
-      d='M9.5 12.5l1.8 1.8L15 10'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M9.5 12.5l1.8 1.8L15 10"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -146,28 +147,63 @@ const IconDiamond = (props: { size?: number }) => (
   <svg
     width={props.size ?? 48}
     height={props.size ?? 48}
-    viewBox='0 0 24 24'
-    fill='none'
+    viewBox="0 0 24 24"
+    fill="none"
     aria-hidden
   >
     <path
-      d='M3 9l9-6 9 6-4 10H7L3 9z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M3 9l9-6 9 6-4 10H7L3 9z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
-      d='M7 9l5 6 5-6'
-      stroke='#0f172a'
-      strokeWidth='1.6'
-      strokeLinecap='round'
-      strokeLinejoin='round'
+      d="M7 9l5 6 5-6"
+      stroke="#0f172a"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
 export default function Home() {
+  const ChatButton = () => {
+    const handleClick = () => {
+      window.open(
+        "https://api.whatsapp.com/send?phone=918448691150&text=Hi.%20I%20want%20to%20know%20about%20the%20products.",
+        "_blank"
+      );
+    };
+
+    return (
+      <Button
+        onClick={handleClick}
+        leftSection={<IconBrandWhatsapp size={28} color="white" />} // bigger icon
+        styles={{
+          root: {
+            background: "#4dc247",
+            borderRadius: "40px",
+            padding: "16px 28px", // bigger padding
+            height: "60px", // larger height
+            fontSize: "15px", // bigger font
+            position: "fixed",
+            bottom: "30px", // lifted up like your SS
+            right: "30px",
+            zIndex: 1000,
+          },
+          label: {
+            color: "white",
+            fontWeight: 700,
+          },
+        }}
+      >
+        Sales Desk
+      </Button>
+    );
+  };
+
   const isMobile = useMediaQuery("(max-width: 768px)");
   const [success, setSuccess] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
@@ -269,14 +305,14 @@ export default function Home() {
         }}
       >
         {success && (
-          <div className='success-popup'>
+          <div className="success-popup">
             ✔ Your details have been received successfully. Our research team
             will connect with you soon.
           </div>
         )}
 
         {/* Top Bar */}
-        <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
+        <Container size="xl" style={{ maxWidth: 1400, padding: 0 }}>
           <div
             style={{
               display: "grid",
@@ -291,8 +327,8 @@ export default function Home() {
             }}
           >
             <Image
-              src='/logo.png'
-              alt='Fynocrat'
+              src="/logo.png"
+              alt="Fynocrat"
               style={{
                 width: isMobile ? 180 : 190,
                 height: "auto",
@@ -402,7 +438,7 @@ export default function Home() {
                 <Space w={isMobile ? 10 : 20} />
 
                 <div style={{ width: isMobile ? 150 : 220 }}>
-                  <Image src='/rating-stars.png' alt='Rating' />
+                  <Image src="/rating-stars.png" alt="Rating" />
                 </div>
               </div>
             </div>
@@ -430,50 +466,50 @@ export default function Home() {
               </Text>
 
               <Paper
-                radius='md'
-                shadow='xl'
-                className='form-box'
+                radius="md"
+                shadow="xl"
+                className="form-box"
                 style={{ width: isMobile ? "100%" : 420, maxWidth: 420 }}
               >
-                <form method='post' style={{ width: "100%" }}>
+                <form method="post" style={{ width: "100%" }}>
                   <Stack>
                     <TextInput
-                      name='name'
-                      label='Name'
+                      name="name"
+                      label="Name"
                       required
-                      radius='md'
-                      placeholder='john doe'
+                      radius="md"
+                      placeholder="john doe"
                     />
 
                     <TextInput
-                      name='email'
-                      label='Email'
+                      name="email"
+                      label="Email"
                       required
-                      radius='md'
-                      placeholder='your@email.com'
+                      radius="md"
+                      placeholder="your@email.com"
                     />
 
                     <TextInput
-                      name='phone'
-                      label='Phone'
+                      name="phone"
+                      label="Phone"
                       required
-                      radius='md'
-                      placeholder='+91 98765 43210'
+                      radius="md"
+                      placeholder="+91 98765 43210"
                     />
 
                     <Textarea
-                      name='message'
-                      label='Your message'
+                      name="message"
+                      label="Your message"
                       required
                       minRows={4}
-                      radius='md'
-                      placeholder='I am interested in receiving stock ideas.'
+                      radius="md"
+                      placeholder="I am interested in receiving stock ideas."
                     />
 
                     <input
-                      id='g-recaptcha-response'
-                      type='hidden'
-                      name='g-recaptcha-response'
+                      id="g-recaptcha-response"
+                      type="hidden"
+                      name="g-recaptcha-response"
                       value={recaptchaToken ?? ""}
                       readOnly
                     />
@@ -489,9 +525,9 @@ export default function Home() {
                     )}
 
                     <Button
-                      type='submit'
+                      type="submit"
                       fullWidth
-                      radius='md'
+                      radius="md"
                       disabled={!captchaChecked}
                       style={{ height: 45, fontSize: 16, fontWeight: 600 }}
                     >
@@ -504,6 +540,8 @@ export default function Home() {
           </div>
         </Container>
       </Box>
+      <ChatButton />
+
       {/* -------------------------------- SECTION 2 — WHAT WE OFFER (WHITE BG) -------------------------------- */}
       <Box
         style={{
@@ -513,7 +551,7 @@ export default function Home() {
           paddingBottom: 80,
         }}
       >
-        <Container size='xl' style={{ maxWidth: 1200 }}>
+        <Container size="xl" style={{ maxWidth: 1200 }}>
           {/* HERO ROW (left large, right summary) */}
           <SimpleGrid
             cols={{ base: 1, md: 2 }}
@@ -676,9 +714,9 @@ export default function Home() {
             }}
           >
             <Button
-              size='lg'
-              radius='md'
-              color='blue'
+              size="lg"
+              radius="md"
+              color="blue"
               style={{
                 backgroundColor: "#0080ff",
                 fontWeight: 600,
@@ -702,7 +740,7 @@ export default function Home() {
           fontFamily: "Poppins, Inter, sans-serif",
         }}
       >
-        <Container size='xl' style={{ maxWidth: 1200 }}>
+        <Container size="xl" style={{ maxWidth: 1200 }}>
           {/* Heading */}
           <div
             style={{ textAlign: "center", marginBottom: isMobile ? 28 : 48 }}
@@ -716,7 +754,7 @@ export default function Home() {
                 lineHeight: 1.06,
               }}
             >
-              Why Fynocrat is different
+              Why Fynocrat is Different ?
             </Title>
             <Text
               style={{
@@ -752,20 +790,20 @@ export default function Home() {
                 aria-hidden
               >
                 {/* globe icon */}
-                <svg width='28' height='28' viewBox='0 0 24 24' fill='none'>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
-                    d='M12 2a10 10 0 100 20 10 10 0 000-20z'
-                    stroke='#3b82f6'
-                    strokeWidth='1.4'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M12 2a10 10 0 100 20 10 10 0 000-20z"
+                    stroke="#3b82f6"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
-                    d='M2 12h20M12 2c2.5 3 2.5 8 0 11M6 4c4 2 8 2 12 0M6 20c4-2 8-2 12 0'
-                    stroke='#60a5fa'
-                    strokeWidth='1'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M2 12h20M12 2c2.5 3 2.5 8 0 11M6 4c4 2 8 2 12 0M6 20c4-2 8-2 12 0"
+                    stroke="#60a5fa"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -779,7 +817,7 @@ export default function Home() {
                 >
                   Vasudhaiva Kutumbakam
                 </Text>
-                <Text fz={14} color='#6b7280' style={{ lineHeight: 1.5 }}>
+                <Text fz={14} color="#6b7280" style={{ lineHeight: 1.5 }}>
                   Fostering a customer-centric relationship — we treat every
                   client as part of our extended family.
                 </Text>
@@ -800,20 +838,20 @@ export default function Home() {
                 aria-hidden
               >
                 {/* lightbulb */}
-                <svg width='28' height='28' viewBox='0 0 24 24' fill='none'>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
-                    d='M9 18h6M10 21h4'
-                    stroke='#f59e0b'
-                    strokeWidth='1.4'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M9 18h6M10 21h4"
+                    stroke="#f59e0b"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
-                    d='M12 3a6 6 0 00-4 10c0 2 1 3 1 3h6s1-1 1-3a6 6 0 00-4-10z'
-                    stroke='#f97316'
-                    strokeWidth='1.2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M12 3a6 6 0 00-4 10c0 2 1 3 1 3h6s1-1 1-3a6 6 0 00-4-10z"
+                    stroke="#f97316"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -826,7 +864,7 @@ export default function Home() {
                 >
                   Visionary Approach Towards Research
                 </Text>
-                <Text fz={14} color='#6b7280' style={{ lineHeight: 1.5 }}>
+                <Text fz={14} color="#6b7280" style={{ lineHeight: 1.5 }}>
                   We challenge the status quo and identify emerging themes
                   before they become mainstream.
                 </Text>
@@ -847,20 +885,20 @@ export default function Home() {
                 aria-hidden
               >
                 {/* user-heart */}
-                <svg width='28' height='28' viewBox='0 0 24 24' fill='none'>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
-                    d='M12 12a3 3 0 100-6 3 3 0 000 6z'
-                    stroke='#06b6d4'
-                    strokeWidth='1.2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M12 12a3 3 0 100-6 3 3 0 000 6z"
+                    stroke="#06b6d4"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
-                    d='M4 20c1.5-3 4.5-5 8-5s6.5 2 8 5'
-                    stroke='#14b8a6'
-                    strokeWidth='1.2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M4 20c1.5-3 4.5-5 8-5s6.5 2 8 5"
+                    stroke="#14b8a6"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -873,7 +911,7 @@ export default function Home() {
                 >
                   Customer-Centricity
                 </Text>
-                <Text fz={14} color='#6b7280' style={{ lineHeight: 1.5 }}>
+                <Text fz={14} color="#6b7280" style={{ lineHeight: 1.5 }}>
                   Personalized service and trust-first relationships — we build
                   experiences that exceed expectations.
                 </Text>
@@ -894,22 +932,22 @@ export default function Home() {
                 aria-hidden
               >
                 {/* chip / ai */}
-                <svg width='28' height='28' viewBox='0 0 24 24' fill='none'>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <rect
-                    x='6'
-                    y='6'
-                    width='12'
-                    height='12'
-                    rx='2'
-                    stroke='#10b981'
-                    strokeWidth='1.2'
+                    x="6"
+                    y="6"
+                    width="12"
+                    height="12"
+                    rx="2"
+                    stroke="#10b981"
+                    strokeWidth="1.2"
                   />
-                  <path d='M9 9h6v6H9z' stroke='#059669' strokeWidth='1' />
+                  <path d="M9 9h6v6H9z" stroke="#059669" strokeWidth="1" />
                   <path
-                    d='M3 12h2M19 12h2M12 3v2M12 19v2'
-                    stroke='#34d399'
-                    strokeWidth='1'
-                    strokeLinecap='round'
+                    d="M3 12h2M19 12h2M12 3v2M12 19v2"
+                    stroke="#34d399"
+                    strokeWidth="1"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>
@@ -922,7 +960,7 @@ export default function Home() {
                 >
                   Embracing Technology & AI
                 </Text>
-                <Text fz={14} color='#6b7280' style={{ lineHeight: 1.5 }}>
+                <Text fz={14} color="#6b7280" style={{ lineHeight: 1.5 }}>
                   We leverage AI & ML to analyze large datasets, uncover
                   patterns, and generate forward-looking investment signals.
                 </Text>
@@ -943,20 +981,20 @@ export default function Home() {
                 aria-hidden
               >
                 {/* shield-check */}
-                <svg width='28' height='28' viewBox='0 0 24 24' fill='none'>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
-                    d='M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z'
-                    stroke='#f97316'
-                    strokeWidth='1.2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"
+                    stroke="#f97316"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
-                    d='M9 12l2 2 4-4'
-                    stroke='#fb923c'
-                    strokeWidth='1.2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M9 12l2 2 4-4"
+                    stroke="#fb923c"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -969,7 +1007,7 @@ export default function Home() {
                 >
                   Focus on Risk Management
                 </Text>
-                <Text fz={14} color='#6b7280' style={{ lineHeight: 1.5 }}>
+                <Text fz={14} color="#6b7280" style={{ lineHeight: 1.5 }}>
                   Protecting capital is a priority — we balance the pursuit of
                   returns with robust risk controls.
                 </Text>
@@ -990,19 +1028,19 @@ export default function Home() {
                 aria-hidden
               >
                 {/* compass/rocket */}
-                <svg width='28' height='28' viewBox='0 0 24 24' fill='none'>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
-                    d='M12 2l3 7-7 3-3-7 7-3z'
-                    stroke='#6366f1'
-                    strokeWidth='1.2'
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
+                    d="M12 2l3 7-7 3-3-7 7-3z"
+                    stroke="#6366f1"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
-                    d='M9 15l6 6M15 9l6 6'
-                    stroke='#8b5cf6'
-                    strokeWidth='1'
-                    strokeLinecap='round'
+                    d="M9 15l6 6M15 9l6 6"
+                    stroke="#8b5cf6"
+                    strokeWidth="1"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>
@@ -1015,7 +1053,7 @@ export default function Home() {
                 >
                   Challenging Conventional Wisdom
                 </Text>
-                <Text fz={14} color='#6b7280' style={{ lineHeight: 1.5 }}>
+                <Text fz={14} color="#6b7280" style={{ lineHeight: 1.5 }}>
                   We question common assumptions and explore unconventional
                   strategies to find overlooked opportunities.
                 </Text>
@@ -1026,9 +1064,9 @@ export default function Home() {
           {/* CTA */}
           <div style={{ marginTop: isMobile ? 36 : 56, textAlign: "center" }}>
             <Button
-              size='lg'
-              radius='md'
-              color='blue'
+              size="lg"
+              radius="md"
+              color="blue"
               style={{
                 backgroundColor: "#0080ff",
                 fontWeight: 600,
@@ -1048,44 +1086,44 @@ export default function Home() {
         onClose={() => setFormOpen(false)}
         centered
         size={isMobile ? "90%" : "lg"}
-        title='Fill Your Details'
+        title="Fill Your Details"
       >
-        <form method='post'>
+        <form method="post">
           <Stack>
             <TextInput
-              label='Name'
-              name='popup_name'
-              placeholder='John Doe'
+              label="Name"
+              name="popup_name"
+              placeholder="John Doe"
               required
             />
 
             <TextInput
-              label='Email'
-              name='popup_email'
-              placeholder='your@email.com'
+              label="Email"
+              name="popup_email"
+              placeholder="your@email.com"
               required
             />
 
             <TextInput
-              label='Phone'
-              name='popup_phone'
-              placeholder='+91 98765 43210'
+              label="Phone"
+              name="popup_phone"
+              placeholder="+91 98765 43210"
               required
             />
 
             <Textarea
-              label='Your Message'
-              name='popup_message'
-              placeholder='I want to explore investment insights.'
+              label="Your Message"
+              name="popup_message"
+              placeholder="I want to explore investment insights."
               required
               minRows={4}
             />
 
             {/* Hidden recaptcha field */}
             <input
-              id='popup-recaptcha'
-              type='hidden'
-              name='g-recaptcha-response'
+              id="popup-recaptcha"
+              type="hidden"
+              name="g-recaptcha-response"
               value={recaptchaToken ?? ""}
               readOnly
             />
@@ -1102,9 +1140,9 @@ export default function Home() {
             )}
 
             <Button
-              type='submit'
-              size='md'
-              radius='md'
+              type="submit"
+              size="md"
+              radius="md"
               disabled={!captchaChecked}
               style={{
                 backgroundColor: "#0080ff",
