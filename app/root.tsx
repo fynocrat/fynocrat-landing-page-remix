@@ -15,6 +15,21 @@ import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
 import "./tailwind-output.css"; // if using compiled tailwind
 import "./app.css"; // the CSS snippet you pasted earlier
+import { redirect } from "@remix-run/node";
+
+export async function action({ request }: any) {
+  const formData = await request.formData();
+
+  const name = formData.get("name");
+  const email = formData.get("email");
+  const phone = formData.get("phone");
+  const message = formData.get("message");
+  const captcha = formData.get("g-recaptcha-response");
+
+  console.log("FORM RECEIVED AT ROOT:", { name, email, phone, message, captcha });
+
+  return redirect("/?success=1");
+}
 
 export const links: LinksFunction = () => [];
 export const meta: MetaFunction = () => [
