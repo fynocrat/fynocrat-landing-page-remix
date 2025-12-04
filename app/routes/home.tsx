@@ -26,6 +26,9 @@ import { json } from "@remix-run/node";
 import HomeBanner from "~/components/home/hero-banner";
 import ProductsSection from "~/components/home/products-section";
 import WhyFynocratSection from "~/components/home/why-fynocrat-section";
+import ClientTestimonials from "~/components/home/client-testimonials";
+import Footer from "~/components/footer";
+
 
 type Props = {
   setFormOpen: (open: boolean) => void;
@@ -530,7 +533,7 @@ export default function Home() {
           },
         }}
       >
-        Sales Desk
+      Get Stock Idea
       </Button>
     );
   };
@@ -922,6 +925,8 @@ export default function Home() {
       />
       {/* -------------------------------- SECTION — WHY FYNOCAT IS DIFFERENT (ICON + TEXT GRID, 3x2) -------------------------------- */}
       <WhyFynocratSection isMobile={isMobile} setFormOpen={setFormOpen} />
+      <ClientTestimonials isMobile={isMobile} />
+      <Footer />
       {/* -------------------------------- POPUP FORM -------------------------------- */}
       <Modal
         opened={formOpen}

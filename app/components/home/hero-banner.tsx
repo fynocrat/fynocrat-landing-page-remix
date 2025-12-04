@@ -54,40 +54,49 @@ export default function HomeBanner({
     >
       {/* Top Bar */}
       <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: isMobile ? "1fr" : "48% 40%",
-            columnGap: isMobile ? 20 : 140,
-            alignItems: "center",
-            paddingLeft: isMobile ? 20 : 100,
-            paddingRight: isMobile ? 20 : 100,
-            marginBottom: isMobile ? 10 : 25,
-            marginTop: isMobile ? 20 : 30,
-          }}
-        >
-          <Image
-            src='/logo.png'
-            alt='Fynocrat'
-            style={{
-              width: isMobile ? 180 : 190,
-              height: "auto",
-              objectFit: "contain",
-            }}
-          />
+      <div
+  style={{
+    display: "grid",
+    gridTemplateColumns: isMobile ? "1fr" : "48% 40%",
+    gridTemplateRows: isMobile ? "auto auto" : "auto",  // ⭐ forces 2 rows on mobile
+    columnGap: isMobile ? 0 : 140,
+    rowGap: isMobile ? 5 : 0,                           // ⭐ spacing between logo + SEBI
+    // justifyItems: isMobile ? "center" : "start",        // ⭐ center on mobile
+    alignItems: "center",
+    // placeItems: "center",
+    paddingLeft: isMobile ? 20 : 100,
+    paddingRight: isMobile ? 20 : 100,
+    marginBottom: isMobile ? 10 : 25,
+    marginTop: isMobile ? 20 : 30,
+  }}
+>
+  {/* LOGO */}
+  <Image
+    src="/logo.png"
+    alt="Fynocrat"
+    style={{
+      width: isMobile ? 180 : 190,
+      height: "auto",
+      placeSelf: isMobile?"center":"start",  // center logo on mobile
+      objectFit: "contain",
+    }}
+  />
 
-          <Text
-            style={{
-              color: "#fff",
-              fontWeight: 100,
-              fontSize: isMobile ? 12 : 24,
-              opacity: 0.9,
-              textAlign: "center",
-            }}
-          >
-            SEBI Registration No. – INH000011918
-          </Text>
-        </div>
+  {/* SEBI NUMBER */}
+  <Text
+    style={{
+      color: "#fff",
+      fontWeight: 100,
+      fontSize: isMobile ? 12 : 24,
+      opacity: 0.9,
+      textAlign: "center",
+      marginTop: isMobile ? 4 : 0,   // small spacing under logo
+    }}
+  >
+    SEBI Registration No. – INH000011918
+  </Text>
+</div>
+
 
         {/* Main grid */}
         <div
@@ -105,11 +114,11 @@ export default function HomeBanner({
             <Title
               style={{
                 color: "#ff5b5b",
-                fontSize: isMobile ? 30 : 40,
+                fontSize: isMobile ? 25 : 40,
                 fontWeight: 700,
-                lineHeight: 1.15,
+                lineHeight: 1.5,
                 marginBottom: 30,
-                minHeight: 120,
+                // minHeight: 120,
                 paddingTop: isMobile ? 0 : 20,
               }}
             >
@@ -132,6 +141,19 @@ export default function HomeBanner({
             >
               We filter out the noise, identify opportunities, and guide you
               toward returns that last.
+            </Text>
+
+            <Text
+              style={{
+                color: "#ffffff",
+                opacity: 0.82,
+                fontSize: isMobile ? 10 : 15,
+                lineHeight: 1.7,
+                marginTop: 10,
+                maxWidth: 600,
+              }}
+            >
+              Because the best investors don’t chase stocks — they understand them.
             </Text>
 
             <Space h={isMobile ? 30 : 100} />
