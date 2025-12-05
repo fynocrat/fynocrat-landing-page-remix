@@ -16,13 +16,18 @@ export default function Footer() {
       }}
     >
       <Container size="xl" style={{ maxWidth: 1200 }}>
+        
         {/* Logo row */}
         <Box style={{ marginBottom: 32 }}>
           <Image src="/logo.png" w={140} h="auto" alt="Fynocrat" />
         </Box>
 
         {/* Three-column details row */}
-        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} style={{ marginBottom: 32 }}>
+        <SimpleGrid
+          cols={{ base: 1, md: 3 }}
+          spacing={32}
+          style={{ marginBottom: 32 }}
+        >
           {/* SEBI Registered Research Analyst Details */}
           <Box>
             <Text
@@ -35,6 +40,7 @@ export default function Footer() {
             >
               SEBI Registered Research Analyst Details
             </Text>
+
             <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
               Registered Name: Fynocrat Technologies
               <br />
@@ -56,8 +62,12 @@ export default function Footer() {
               <br />
               BSE Enlistment No.: 5759
               <br />
+
+              {/* ✔ Updated Anchor (opens certificate) */}
               <Anchor
-                href="#"
+                href="/sebi_certificate.png"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontSize: 13.5,
                   marginTop: 4,
@@ -69,6 +79,7 @@ export default function Footer() {
               >
                 View Registration Certificate
               </Anchor>
+
               <br />
               Valid Till: Mar 14, 2028
               <br />
@@ -76,11 +87,9 @@ export default function Footer() {
               <br />
               compliance@fynocrat.com | +91 120 4458575
               <br />
-              Grievance Officer (Desinated officer for PWD
+              Grievance Officer (Desinated officer for PWD grievances):
               <br />
-              grievances): Mr. Saurabh Goel |
-              <br />
-              grievance@fynocrat.com | +91 120 4458575
+              Mr. Saurabh Goel | grievance@fynocrat.com | +91 120 4458575
               <br />
               Principal Officer: Mr. Gaurav Goel |
               <br />
@@ -104,6 +113,7 @@ export default function Footer() {
             >
               Principal Place of Business:
             </Text>
+
             <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
               Office No. 910, 9th Floor, Tower A,
               <br />
@@ -127,8 +137,9 @@ export default function Footer() {
             >
               SEBI Office Details:
             </Text>
+
             <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
-              SEBI Bhavan BKC, Plot No.C4-A, &apos;G&apos; Block Bandra-Kurla
+              SEBI Bhavan BKC, Plot No.C4-A, 'G' Block Bandra-Kurla
               <br />
               Complex,
               <br />
@@ -146,8 +157,6 @@ export default function Footer() {
             </Text>
           </Box>
         </SimpleGrid>
-
-       
 
         {/* Bottom text */}
         <Text
@@ -174,9 +183,7 @@ export default function Footer() {
           certification from NISM in no way guarantee the performance of the
           intermediary or provide any assurance of returns to investors.
           Investments in the securities market are subject to market risks. Read
-          all the related documents carefully before investing. The securities
-          quoted on the website are for illustration only and are not
-          recommendatory.”
+          all the related documents carefully before investing.”
         </Text>
 
         <Text
