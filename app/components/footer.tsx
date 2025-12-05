@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, SimpleGrid, Text, Image } from "@mantine/core";
+import { Box, Container, SimpleGrid, Text, Image, Anchor } from "@mantine/core";
 
 export default function Footer() {
   return (
@@ -16,18 +16,13 @@ export default function Footer() {
       }}
     >
       <Container size="xl" style={{ maxWidth: 1200 }}>
-        <SimpleGrid
-          cols={{ base: 1, md: 3 }}
-          spacing={32}
-          style={{ marginBottom: 32 }}
-        >
-          {/* Logo */}
-          <Box>
-            <Box style={{ width: "fit-content" }}>
-              <Image src="/logo.png" w={120} h="auto" />
-            </Box>
-          </Box>
+        {/* Logo row */}
+        <Box style={{ marginBottom: 32 }}>
+          <Image src="/logo.png" w={140} h="auto" alt="Fynocrat" />
+        </Box>
 
+        {/* Three-column details row */}
+        <SimpleGrid cols={{ base: 1, md: 3 }} spacing={32} style={{ marginBottom: 32 }}>
           {/* SEBI Registered Research Analyst Details */}
           <Box>
             <Text
@@ -41,14 +36,19 @@ export default function Footer() {
               SEBI Registered Research Analyst Details
             </Text>
             <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
-              Registered Name: Fynocrat Technologies Private Limited
+              Registered Name: Fynocrat Technologies
+              <br />
+              Private Limited
               <br />
               CIN No.: U72900UP2022PTC164214
               <br />
               GST No.: 09AAFCF0553R2Z4
               <br />
-              Reg Address: K-286, Site V Kasna Industrial Area, Greater Noida
-              Noida Gautam Buddha Nagar UP -201306
+              Reg Address: K-286, Site V Kasna Industrial Area
+              <br />
+              Greater Noida Noida Gautam Buddha Nagar UP
+              <br />
+              -201306
               <br />
               Type of Registration: Non-Individual
               <br />
@@ -56,13 +56,43 @@ export default function Footer() {
               <br />
               BSE Enlistment No.: 5759
               <br />
+              <Anchor
+                href="#"
+                style={{
+                  fontSize: 13.5,
+                  marginTop: 4,
+                  marginBottom: 4,
+                  display: "inline-block",
+                  textDecoration: "underline",
+                  color: "#e5e7eb",
+                }}
+              >
+                View Registration Certificate
+              </Anchor>
+              <br />
               Valid Till: Mar 14, 2028
               <br />
-              Compliance Officer: Mr. Saurabh Goel
+              Compliance Officer: Mr. Saurabh Goel |
+              <br />
+              compliance@fynocrat.com | +91 120 4458575
+              <br />
+              Grievance Officer (Desinated officer for PWD
+              <br />
+              grievances): Mr. Saurabh Goel |
+              <br />
+              grievance@fynocrat.com | +91 120 4458575
+              <br />
+              Principal Officer: Mr. Gaurav Goel |
+              <br />
+              connect@fynocrat.com | +91 120 4458575
+              <br />
+              Nodal Officer: Mr. Abhijit Paul |
+              <br />
+              connect@fynocrat.com | +91 120 4458575
             </Text>
           </Box>
 
-          {/* Principal Place of Business + SEBI Office */}
+          {/* Principal Place of Business */}
           <Box>
             <Text
               style={{
@@ -74,20 +104,23 @@ export default function Footer() {
             >
               Principal Place of Business:
             </Text>
-            <Text style={{ fontSize: 13.5, lineHeight: 1.7, marginBottom: 14 }}>
-              Office No. 910, 9th Floor, Tower A, Ithum Tower,
+            <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
+              Office No. 910, 9th Floor, Tower A,
               <br />
-              Sec 62, Noida, Delhi(NCR) 201301
+              Ithum Tower, Sec 62, Noida, Delhi(NCR) 201301
               <br />
               Email: connect@fynocrat.com
               <br />
               Landline: +91 120 4458575
             </Text>
+          </Box>
 
+          {/* SEBI Office Details */}
+          <Box>
             <Text
               style={{
                 fontWeight: 600,
-                marginBottom: 8,
+                marginBottom: 10,
                 fontSize: 14,
                 color: "#f9fafb",
               }}
@@ -96,7 +129,10 @@ export default function Footer() {
             </Text>
             <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
               SEBI Bhavan BKC, Plot No.C4-A, &apos;G&apos; Block Bandra-Kurla
-              Complex, Bandra (East), Mumbai - 400051, Maharashtra
+              <br />
+              Complex,
+              <br />
+              Bandra (East), Mumbai - 400051, Maharashtra
               <br />
               Tel: +91-22-26449000 / 40459000
               <br />
@@ -104,26 +140,20 @@ export default function Footer() {
               <br />
               E-mail: sebi@sebi.gov.in
               <br />
-              Toll Free Investor Helpline: 1800 22 7575
+              Toll Free Investor Helpline: 1800 22 7575 | SEBI SCORES |
+              <br />
+              SMARTODR
             </Text>
           </Box>
         </SimpleGrid>
 
-        {/* Divider-ish spacing */}
-        <Box
-          style={{
-            height: 1,
-            background:
-              "linear-gradient(to right, transparent, rgba(156,163,175,0.35), transparent)",
-            marginBottom: 18,
-          }}
-        />
+       
 
         {/* Bottom text */}
         <Text
           style={{
             fontSize: 13,
-            textAlign: "center",
+            textAlign: "left",
             marginBottom: 10,
             color: "#d1d5db",
           }}
@@ -135,10 +165,9 @@ export default function Footer() {
           style={{
             fontSize: 11.5,
             lineHeight: 1.7,
-            textAlign: "center",
+            textAlign: "left",
             color: "#9ca3af",
-            maxWidth: 980,
-            margin: "0 auto",
+            marginBottom: 10,
           }}
         >
           Disclaimer: “Registration granted by SEBI, membership of BASL, and
@@ -148,8 +177,16 @@ export default function Footer() {
           all the related documents carefully before investing. The securities
           quoted on the website are for illustration only and are not
           recommendatory.”
-          <br />
-          <br />
+        </Text>
+
+        <Text
+          style={{
+            fontSize: 11.5,
+            lineHeight: 1.7,
+            textAlign: "left",
+            color: "#9ca3af",
+          }}
+        >
           Investment in securities market are subject to market risks. Read all
           the related documents carefully before investing.
         </Text>

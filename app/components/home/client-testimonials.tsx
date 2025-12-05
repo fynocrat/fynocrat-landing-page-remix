@@ -15,6 +15,7 @@ import { FaStar } from "react-icons/fa";
 
 type Props = {
   isMobile: boolean;
+  animateOnMobile?: boolean; // optional toggle — default false
 };
 
 // ------------------ ⭐ STARS COMPONENT (Matches Your Screenshot) ------------------
@@ -132,11 +133,10 @@ const testimonial = [
     alt: "Saie patil",
     color: " #0B3A4F",
   },
-   {
+  {
     text: "Novice or experts, no matter your experience as the team definitely knows how to manage and help you invest and trade better.",
     link: "https://maps.app.goo.gl/HdPTPhYz2M5M3yBV7",
     author: "Jaideep Singh",
-    
     img: "/Jaideep Singh.png",
     alt: "Jaideep Singh - Fynocrat Customer",
     color: " #0B3A4F",
@@ -145,7 +145,6 @@ const testimonial = [
     text: "Good recommendations. Liked the way they follow up with customers for their investments..",
     link: "https://maps.app.goo.gl/DkCXaUkaDwCqnsMU9",
     author: "Shrinivas Dandin",
-   
     img: "/Shrinivas Dandin.png",
     alt: "Shrinivas Dandin - Fynocrat Customer",
     color: " #0B3A4F",
@@ -154,7 +153,6 @@ const testimonial = [
     text: "Great Service and support..",
     link: "https://maps.app.goo.gl/HUayQMLjyDHfvEp48",
     author: "Najmul Hassan",
-  
     img: "/Najmul Hassan.png",
     alt: "Najmul Hassan - Fynocrat Customer",
     color: " #0B3A4F",
@@ -163,7 +161,6 @@ const testimonial = [
     text: "Bought their Wealth builder product some 6 months back and have not been disappointed. The overall portfolio growth is nice and steady.",
     link: "https://maps.app.goo.gl/xV78myioAFaofVQy5",
     author: "Shubham Garbyal",
-  
     img: "/unnamed (3).png",
     alt: "Shubham Garbyal - Fynocrat Customer",
     color: " #0B3A4F",
@@ -172,7 +169,6 @@ const testimonial = [
     text: "Mr Dinesh was able to understand my financial requirements , and gave me a correct solution.Has knowledge on the market..",
     link: "https://maps.app.goo.gl/xdEKNkqKU1r2ucdB7",
     author: "Srinivasan Mahalingam",
-   
     img: "/unnamed (3) (1).png",
     alt: "Srinivasan Mahalingam - Fynocrat Customer",
     color: " #0B3A4F",
@@ -181,7 +177,6 @@ const testimonial = [
     text: "I've been taking services from Fynocrat for the past few months, and the experience has been genuinely reassuring..",
     link: "https://maps.app.goo.gl/aZ7umCSMyGPyoc8b6",
     author: "Alka gurnani",
-   
     img: "/unnamed (4).png",
     alt: "Alka gurnani - Fynocrat Customer",
     color: " #0B3A4F",
@@ -190,7 +185,6 @@ const testimonial = [
     text: "Just started investing with them. Good research on advising hight potential stocks. Still, its to early recommending working with Fynocrat.",
     link: "https://maps.app.goo.gl/XPxiE9m8RcpbftvGA",
     author: "Amit Rana",
-    
     img: "/unnamed (4) (1).png",
     alt: "Amit Rana - Fynocrat Customer",
     color: " #0B3A4F",
@@ -199,7 +193,6 @@ const testimonial = [
     text: "I opted for the Mauka product. Have made decent returns so far. Would recommend their services. Planning to take the portfolio plan as well",
     link: "https://maps.app.goo.gl/7WT8XFLR3Zr2Lm836",
     author: "Anup kotiyal",
-    
     img: "/unnamed (4) (2).png",
     alt: "Anup kotiyal - Fynocrat Customer",
     color: " #0B3A4F",
@@ -208,7 +201,6 @@ const testimonial = [
     text: "This is a very good company but I have not seen its stock yet but the counselors are very good like (ANJALI MAM) and (YASH SIR).",
     link: "https://maps.app.goo.gl/79i6KEMQTaZHXCtJ8",
     author: "Mortal gameing",
-   
     img: "/unnamed (12).png",
     alt: "Mortal gameing - Fynocrat Customer",
     color: " #0B3A4F",
@@ -217,7 +209,6 @@ const testimonial = [
     text: "Great Recommendations, in just 1 month I earned my subscription amount in very little investmennt.",
     link: "https://maps.app.goo.gl/J19usFNCVSJ1nfD78",
     author: "Zuber Mohammed Qureshi",
-   
     img: "/unnamed (6).png",
     alt: "Zuber Mohammed Qureshi - Fynocrat Customer",
     color: " #0B3A4F",
@@ -226,7 +217,6 @@ const testimonial = [
     text: "They provide excellent recommendations, which has good momentum and with good entry prices.",
     link: "https://maps.app.goo.gl/Mb5qUCEzTDWWQFVk9",
     author: "Pratham kv",
-  
     img: "/unnamed (7).png",
     alt: "Pratham kv - Fynocrat Customer",
     color: " #0B3A4F",
@@ -235,7 +225,6 @@ const testimonial = [
     text: "Miss Nancy gave me directions and recommendations of stocks...",
     link: "https://maps.app.goo.gl/ZgTDp6RYwT5U7hFy5",
     author: "Parminder Singh",
-    
     img: "/unnamed (7) (1).png",
     alt: "Parminder Singh - Fynocrat Customer",
     color: " #0B3A4F",
@@ -244,7 +233,6 @@ const testimonial = [
     text: "The T- 20 product helped me make some quick trades and earn good profits. Satisfactory results.",
     link: "https://maps.app.goo.gl/h2XYqkVeCz6bMSMi9",
     author: "Ritik Roy",
-    
     img: "/unnamed R.png",
     alt: "Ritik Roy - Fynocrat Customer",
     color: " #0B3A4F",
@@ -253,7 +241,6 @@ const testimonial = [
     text: "Satisfied with the service. The research is clear and well presented and the stock recommendations have been good.",
     link: "https://share.google/PcayfVa5L9Boap0Q1",
     author: "Shubhi Singh",
-   
     img: "/unnamed (3) (2).png",
     alt: "Shubhi Singh - Fynocrat Customer",
     color: " #0B3A4F",
@@ -262,7 +249,6 @@ const testimonial = [
     text: "Happy with the stock recommendations. Took the wealth builder product and so far the results are good.",
     link: "https://share.google/2wJMzxLflTY3u4Rm8",
     author: "Ratnangi Chaudhary",
-   
     img: "/unnamed R.png",
     alt: "Ratnangi Chaudhary - Fynocrat Customer",
     color: " #0B3A4F",
@@ -271,7 +257,6 @@ const testimonial = [
     text: "Highly recommended, Good returns in T20, concepts, research and dedicated RA..",
     link: "https://share.google/LKQ7iOWFyOdDP2wi7",
     author: "Vipen Kumar",
-   
     img: "/unnamed (8) (1).png",
     alt: "Vipen Kumar - Fynocrat Customer",
     color: " #0B3A4F",
@@ -280,7 +265,6 @@ const testimonial = [
     text: "Impressed with the research quality and stock selection strategy..",
     link: "https://share.google/c6vDu4EEiYyxvhFCk",
     author: "Alan Antony",
-   
     img: "/unnamed (4) (4).png",
     alt: "Alan Antony - Fynocrat Customer",
     color: " #0B3A4F",
@@ -289,7 +273,6 @@ const testimonial = [
     text: "Wealth builder suits my long -term goals perfectly. Good stocks recommended.",
     link: "https://maps.app.goo.gl/Ce5jBaDjKXtJotxx7",
     author: "Surendra Kumar Singhal",
-  
     img: "/unnamed (3) (3).png",
     alt: "Surendra Kumar Singhal - Fynocrat Customer",
     color: " #0B3A4F",
@@ -298,7 +281,6 @@ const testimonial = [
     text: "I have been thoroughly impressed with the expertise and professionalism of Fynocrat..",
     link: "https://share.google/jM64GhWGV0QWw1x2l",
     author: "Rochak sikka",
-  
     img: "/unnamed R.png",
     alt: "Rochak sikka - Fynocrat Customer",
     color: " #0B3A4F",
@@ -307,7 +289,6 @@ const testimonial = [
     text: " Great work responsible team and all the stock recomendation are best. Thank you.",
     link: "https://maps.app.goo.gl/AiKJrGUTMQKPF3uG7",
     author: "Sukhabeer Singh",
-   
     img: "/unnamed sukh.png",
     alt: "Sukhabeer Singh - Fynocrat Customer",
     color: " #0B3A4F",
@@ -316,7 +297,6 @@ const testimonial = [
     text: "Their long-term recommendations require patience but are well worth it..",
     link: "https://maps.app.goo.gl/3y1o9f6y1Y6Yk3oF6",
     author: "Pawan sankhwar",
-   
     img: "/unnamed (7) (1).png",
     alt: "Pawan sankhwar - Fynocrat Customer",
     color: " #0B3A4F",
@@ -325,7 +305,6 @@ const testimonial = [
     text: "I’ve had a great experience with Fynocrat under the guidance of Sarthak Jain. The team is professional, research-driven, and client-focused.",
     link: "https://maps.app.goo.gl/Eunth2YnM5MbU7kS7",
     author: "Aftab jaliawala",
-   
     img: "/unnamed (4) (5).png",
     alt: "Aftab jaliawala - Fynocrat Customer",
     color: " #0B3A4F",
@@ -334,7 +313,6 @@ const testimonial = [
     text: "On-boarding was hasslefree, Anjali did a great job, Read the recommended scrips today and found the research reports good..",
     link: "https://maps.app.goo.gl/R8FWpNiKWfjnKf6X7",
     author: "Sarun68",
-  
     img: "/unnamed S8.png",
     alt: "Sarun68 - Fynocrat Customer",
     color: " #0B3A4F",
@@ -343,7 +321,6 @@ const testimonial = [
     text: "I am having a great experience from the team and overall success ratio on investment call is excellent. All the best to the team for their good work. 👍",
     link: "https://maps.app.goo.gl/cbRCUd3nhyLmy4Tv6",
     author: "Vipul Gandhi",
-   
     img: "/unnamed (13).png",
     alt: "Vipul Gandhi - Fynocrat Customer",
     color: " #0B3A4F",
@@ -351,13 +328,51 @@ const testimonial = [
 ];
 
 // ------------------ ⭐ MAIN COMPONENT ------------------
-const Testimonials = ({ isMobile}:Props) => {
+const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
   const itemsPerPage = 6;
   const [activePage, setActivePage] = React.useState(1);
 
   const totalPages = Math.ceil(testimonial.length / itemsPerPage);
   const startIndex = (activePage - 1) * itemsPerPage;
   const currentItems = testimonial.slice(startIndex, startIndex + itemsPerPage);
+
+  /* ---------- animation refs & state (added) ---------- */
+  const containerRef = React.useRef<HTMLDivElement | null>(null);
+  const [visibleMap, setVisibleMap] = React.useState<Record<string, boolean>>({});
+
+  React.useEffect(() => {
+    // If mobile and animations are disabled, mark everything visible immediately
+    if (isMobile && !animateOnMobile) {
+      const map = Object.fromEntries(
+        testimonial.map((t, i) => [`${t.author}-${i}`, true])
+      );
+      setVisibleMap(map);
+      return;
+    }
+
+    const root = containerRef.current;
+    if (!root) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          const id = el.dataset.testimonialId;
+          if (!id) return;
+          if (entry.isIntersecting) {
+            setVisibleMap((s) => ({ ...s, [id]: true }));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+    );
+
+    const nodes = root.querySelectorAll<HTMLElement>("[data-testimonial-id]");
+    nodes.forEach((n) => observer.observe(n));
+    return () => observer.disconnect();
+    // testimonial is static here; if you make it dynamic add it to deps
+  }, [isMobile, animateOnMobile]);
 
   return (
     <Box py={60} style={{ background: "#033347" }}>
@@ -401,77 +416,97 @@ const Testimonials = ({ isMobile}:Props) => {
             textAlign: "center",
             margin: "0 auto",
             whiteSpace: "pre-line",
-
           }}
         >
-         Our core values are at the heart of all that we do. They are integrated into our daily location lives and help us to remember our customers always come first, the last thank you should always come from us.
+          Our core values are at the heart of all that we do. They are integrated into our daily location lives and help us to remember our customers always come first, the last thank you should always come from us.
         </Text>
         <Space h={40} />
-
       </Container>
 
       {/* GRID */}
-      <Container size='xl' style={{ maxWidth: 1200 }}>
-        <SimpleGrid cols={isMobile ? 1 : 3} style={{ maxWidth: 1200, margin: "auto" }}>
-          {currentItems.map((data, index) => (
-            <Box
-              key={index}
-              py={15}
-              px={15}
-              style={{
-                backgroundColor: data.color,
-                borderRadius: 12,
-              }}
-            >
-              <Group
-                mb={25}
-                style={{
-                  width: "100%",
-                  justifyContent: "space-between",
-                }}
-              >
-                <LazyImage src={data.img} width={60} height={60} alt={data.alt} />
+      <Container size="xl" style={{ maxWidth: 1200 }}>
+        <div ref={containerRef}>
+          <SimpleGrid cols={isMobile ? 1 : 3} style={{ maxWidth: 1200, margin: "auto" }}>
+            {currentItems.map((data, index) => {
+              const id = `${data.author}-${index}`;
+              const isVisible = !!visibleMap[id];
 
-                {/* big quote icon */}
-                <Box style={{ width: 30 }}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="#093245ff"
-                    width="100%"
+              const baseClass = "p-4 rounded-lg will-change-transform will-change-opacity";
+              const animClass = isVisible ? "testimonial-reveal" : "testimonial-hidden";
+
+              return (
+                <Box
+                  key={index}
+                  data-testimonial-id={id}
+                  tabIndex={0}
+                  className={`${baseClass} ${animClass} testimonial-focus`}
+                  py={15}
+                  px={15}
+                  style={{
+                    backgroundColor: data.color,
+                    borderRadius: 12,
+                    transition: "transform .18s ease, box-shadow .18s ease",
+                  }}
+                  role="article"
+                  aria-label={`Testimonial by ${data.author}`}
+                  onMouseEnter={(e: any) => {
+                    e.currentTarget.style.transform = "translateY(-6px)";
+                    e.currentTarget.style.boxShadow = "0 0px 30px rgba(10, 20, 40, 0.20)";
+                  }}
+                  onMouseLeave={(e: any) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = "";
+                  }}
+                >
+                  <Group
+                    mb={25}
+                    style={{
+                      width: "100%",
+                      justifyContent: "space-between",
+                    }}
                   >
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
+                    <LazyImage src={data.img} width={60} height={60} alt={data.alt} />
+
+                    {/* big quote icon */}
+                    <Box style={{ width: 30 }}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="#093245ff"
+                        width="100%"
+                      >
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                      </svg>
+                    </Box>
+                  </Group>
+
+                  <Text style={{ color: "#fff", fontSize: 14, lineHeight: "24px" }}>
+                    {data.text}
+                  </Text>
+
+                  <Space h={10} />
+
+                  <a
+                    href={data.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#fff", fontSize: 14 }}
+                  >
+                    Read More
+                  </a>
+
+                  <Space h={20} />
+
+                  {/* AUTHOR */}
+                  <Text style={{ color: "#fff", fontWeight: 700 }}>{data.author}</Text>
+
+                  {/* STARS  ⭐⭐⭐⭐⭐ */}
+                  <Stars size={14} />
                 </Box>
-              </Group>
-
-              <Text style={{ color: "#fff", fontSize: 14, lineHeight: "24px" }}>
-                {data.text}
-              </Text>
-
-              <Space h={10} />
-
-              <a
-                href={data.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#fff", fontSize: 14 }}
-              >
-                Read More
-              </a>
-
-              <Space h={20} />
-
-              {/* AUTHOR */}
-              <Text style={{ color: "#fff", fontWeight: 700 }}>
-                {data.author}
-              </Text>
-
-              {/* STARS  ⭐⭐⭐⭐⭐ */}
-              <Stars size={14} />
-            </Box>
-          ))}
-        </SimpleGrid>
+              );
+            })}
+          </SimpleGrid>
+        </div>
 
         {/* PAGINATION */}
         <Center mt={36}>

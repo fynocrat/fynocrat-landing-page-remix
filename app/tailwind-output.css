@@ -155,6 +155,9 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 .relative {
   position: relative;
 }
+.static {
+  position: static;
+}
 .isolate {
   isolation: isolate;
 }
@@ -173,8 +176,8 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 .hidden {
   display: none;
 }
-.inline {
-  display: inline;
+.inline-block {
+  display: inline-block;
 }
 .inline-flex {
   display: inline-flex;
@@ -239,6 +242,9 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
+}
+.will-change-transform {
+  will-change: transform;
 }
 .group-hover\:stroke-current {
   &:is(:where(.group):hover *) {

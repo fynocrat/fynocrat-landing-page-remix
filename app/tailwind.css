@@ -13,7 +13,7 @@
 */
 
 /* Utilities (keep this) */
-@tailwind utilities;
+@import "tailwindcss/utilities";
 
 /* helper for full-height */
 html,
