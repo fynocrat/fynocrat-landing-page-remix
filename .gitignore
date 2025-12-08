@@ -5,3 +5,10 @@
 # React Router
 /.react-router/
 /build/
+
+# Firebase Admin Private Key (DO NOT COMMIT)
+serviceAccountKey.json
+*.pem
+*.p12
+*.key
+

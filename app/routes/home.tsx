@@ -1,4 +1,5 @@
 // app/routes/home.tsx
+
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { Modal } from "@mantine/core";
 import {
@@ -28,6 +29,11 @@ import ProductsSection from "~/components/home/products-section";
 import WhyFynocratSection from "~/components/home/why-fynocrat-section";
 import ClientTestimonials from "~/components/home/client-testimonials";
 import Footer from "~/components/footer";
+// after
+
+import { getFcmToken, requestPushPermissionAndGetToken } from "~/lib/firebaseClient";
+
+import EnableNotifications from "~/components/EnableNotifications"; // or ~/components/home/EnableNotificationsButton
 
 
 type Props = {
@@ -331,6 +337,7 @@ export default function Home() {
   const [apiLogs, setApiLogs] = useState<
     Array<{ time: string; type: string; message: string }>
   >([]);
+  const [pushStatus, setPushStatus] = useState<string | null>(null);
 
   // Expose test function to window for easy testing
   useEffect(() => {
@@ -536,6 +543,32 @@ export default function Home() {
       Get Stock Idea
       </Button>
     );
+  };
+
+  const handleEnablePush = async () => {
+    try {
+      setPushStatus("Requesting permission...");
+      const vapid =
+        import.meta.env.VITE_FIREBASE_VAPID_KEY || import.meta.env.VITE_VAPID_KEY;
+      const token = await requestPushPermissionAndGetToken(vapid);
+      if (!token) {
+        setPushStatus("Could not get token (check console)");
+        return;
+      }
+
+      // Save token for server-triggered pushes
+      await fetch("/api/push/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+
+      console.log("✅ FCM token:", token);
+      setPushStatus("Enabled & registered. Token logged in console.");
+    } catch (err: any) {
+      console.error("❌ Push enable failed:", err);
+      setPushStatus(err?.message || "Failed to enable notifications");
+    }
   };
 
   const products = [
@@ -916,7 +949,8 @@ export default function Home() {
         </div>
       )} */}
       <ChatButton />
-
+ {/* Push notifications enable button */}
+      <EnableNotifications />
       {/* -------------------------------- SECTION 2 — WHAT WE OFFER (WHITE BG) -------------------------------- */}
       <ProductsSection
         products={products}
