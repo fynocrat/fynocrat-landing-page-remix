@@ -29,7 +29,6 @@ import WhyFynocratSection from "~/components/home/why-fynocrat-section";
 import ClientTestimonials from "~/components/home/client-testimonials";
 import Footer from "~/components/footer";
 
-
 type Props = {
   setFormOpen: (open: boolean) => void;
 };
@@ -178,82 +177,85 @@ const IconDiamond = (props: { size?: number }) => (
 );
 
 const createEmail = async (data: Record<string, any>) => {
-  const apiRequest = "https://api.fynocrat.com/fynocrat/lead/request";
+  // NEW endpoint
+  const apiRequest = "https://soapi.fynocrat.com/lead_ingest";
 
-  // Normalize field names - handle both main form and popup form fields
+  // ensure recaptcha present (your page already enforces this)
   const recaptchaToken = data["g-recaptcha-response"] || "";
 
   if (!recaptchaToken) {
     throw new Error("reCAPTCHA token is required");
   }
 
-  const normalizedData: Record<string, any> = {
-    name: data.name || data.popup_name || "",
-    email: data.email || data.popup_email || "",
-    phone: data.phone || data.popup_phone || "",
-    message: data.message || data.popup_message || "",
-    "g-recaptcha-response": recaptchaToken,
+  // Generate a stable lead_id for non-FB leads (lead_ingest requires lead_id).
+  // Using a prefix + timestamp ensures uniqueness and makes it clear this is from the landing page.
+  const leadId = data.lead_id || `landing-${Date.now()}`;
+
+  // form id/name for tracking (you can set a campaign/form identifier here)
+  const formId = data.form || "landing_page_form";
+
+  // created_at in ISO (fastapi _parse_created_at handles multiple formats)
+  const createdAt = data.created_at || new Date().toISOString();
+
+  // build raw payload (optional but helpful for debugging & ingest)
+  const rawPayload = {
+    submitted_from: "landing_page",
+    form_id: formId,
+    recaptcha_token: recaptchaToken,
+    payload: {
+      name: data.name || data.popup_name || "",
+      email: data.email || data.popup_email || "",
+      phone: data.phone || data.popup_phone || "",
+      message: data.message || data.popup_message || "",
+    },
+    meta: {
+      userAgent: typeof navigator !== "undefined" ? navigator.userAgent : null,
+      pageUrl: typeof window !== "undefined" ? window.location.href : null,
+      timestamp: new Date().toISOString(),
+    },
   };
 
-  normalizedData["title"] = "## From Landing Page";
-  normalizedData["gcode"] = recaptchaToken;
+  // Map fields expected by the FastAPI /lead_ingest endpoint
+  const payload = {
+    lead_id: String(leadId),
+    form: formId,
+    name: data.name || data.popup_name || "",
+    email: (data.email || data.popup_email || "").trim().toLowerCase() || null,
+    phone: data.phone || data.popup_phone || null,
+    created_at: createdAt,
+    raw: rawPayload,
+  };
 
-  // Debug: Verify reCAPTCHA token is present
-  console.log(
-    "🔐 reCAPTCHA Token in API Call:",
-    recaptchaToken
-      ? `Present (${recaptchaToken.substring(0, 20)}...)`
-      : "MISSING!"
-  );
-
-  // Debug: Log the request data
-  console.log("🚀 POST API Request:", {
-    url: apiRequest,
-    method: "POST",
-    data: normalizedData,
-    timestamp: new Date().toISOString(),
-  });
+  // Debug logs (keeps existing debug style)
+  console.log("🚀 POST to /lead_ingest:", apiRequest, payload);
 
   try {
     const response = await fetch(apiRequest, {
       method: "POST",
-      body: JSON.stringify(normalizedData),
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     });
 
-    // Debug: Log response status
-    console.log("📡 API Response Status:", {
-      status: response.status,
-      statusText: response.statusText,
-      ok: response.ok,
-      headers: Object.fromEntries(response.headers.entries()),
-    });
+    console.log(
+      "📡 API Response Status:",
+      response.status,
+      response.statusText
+    );
 
     if (!response.ok) {
-      // Try to get error message from response
-      let errorMessage = `API request failed with status ${response.status}`;
-      try {
-        const errorData = await response.text();
-        console.error("❌ API Error Response:", errorData);
-        errorMessage = `API Error (${response.status}): ${errorData || response.statusText}`;
-      } catch (e) {
-        console.error("❌ Failed to parse error response:", e);
-      }
-      throw new Error(errorMessage);
+      const text = await response.text();
+      console.error("❌ /lead_ingest error body:", text);
+      throw new Error(
+        `lead_ingest error: ${response.status} ${text || response.statusText}`
+      );
     }
 
-    const res = await response.json();
-    console.log("✅ API Success Response:", res);
-    return res;
-  } catch (error: any) {
-    // Enhanced error logging
-    console.error("❌ API Request Failed:", {
-      error: error.message,
-      stack: error.stack,
-      url: apiRequest,
-      data: normalizedData,
-    });
-    throw error;
+    const resJson = await response.json();
+    console.log("✅ /lead_ingest success:", resJson);
+    return resJson;
+  } catch (err: any) {
+    console.error("❌ createEmail -> /lead_ingest failed:", err);
+    throw err;
   }
 };
 
@@ -533,7 +535,7 @@ export default function Home() {
           },
         }}
       >
-      Get Stock Idea
+        Get Stock Idea
       </Button>
     );
   };
