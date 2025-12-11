@@ -14,6 +14,19 @@ import {
   Space,
 } from "@mantine/core";
 import ReCAPTCHA from "react-google-recaptcha";
+// ⭐ Star Component
+const Star = ({ size = 28, color = "#FFC043" }: { size?: number; color?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill={color}
+    stroke="none"
+    
+  >
+    <path d="M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z" />
+  </svg>
+);
 
 type Props = {
   isMobile: boolean;
@@ -41,7 +54,7 @@ export default function HomeBanner({
   return (
     <Box
       style={{
-        backgroundImage: "url('/banner.png')",
+        backgroundImage: "url('/bannerhero.png')",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -115,7 +128,7 @@ export default function HomeBanner({
               style={{
                 color: "#ff5b5b",
                 fontSize: isMobile ? 25 : 40,
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.5,
                 marginBottom: 30,
                 // minHeight: 120,
@@ -185,9 +198,40 @@ export default function HomeBanner({
 
               <Space w={isMobile ? 10 : 20} />
 
-              <div style={{ width: isMobile ? 150 : 220 }}>
-                <Image src='/rating-stars.png' alt='Rating' />
-              </div>
+              {/* ⭐ Custom SVG Star Rating */}
+<div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+  {/* 4 full stars */}
+  <Star size={isMobile ? 26 : 32} />
+  <Star size={isMobile ? 26 : 32} />
+  <Star size={isMobile ? 26 : 32} />
+  <Star size={isMobile ? 26 : 32} />
+
+  {/* 60% filled star */}
+  <div
+    style={{
+      position: "relative",
+      width: isMobile ? 26 : 32,
+      height: isMobile ? 26 : 32,
+      display: "inline-block",
+    }}
+  >
+   <Star size={isMobile ? 26 : 32} color="#FFE7A4" />
+
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "60%", // ⭐ Fill %
+        height: "100%",
+        overflow: "hidden",
+      }}
+    >
+      <Star size={isMobile ? 26 : 32} color="#FFC043" />
+    </div>
+  </div>
+</div>
+
             </div>
           </div>
 
@@ -204,7 +248,7 @@ export default function HomeBanner({
             <Text
               style={{
                 color: "#fff",
-                fontWeight: 600,
+                fontWeight: 100,
                 fontSize: isMobile ? 20 : 24,
                 marginBottom: isMobile ? 10 : 20,
                 textAlign: "right",

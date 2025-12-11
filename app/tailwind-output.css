@@ -149,6 +149,9 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 .visible {
   visibility: visible;
 }
+.absolute {
+  position: absolute;
+}
 .fixed {
   position: fixed;
 }
@@ -182,6 +185,9 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 .inline-flex {
   display: inline-flex;
 }
+.table {
+  display: table;
+}
 .w-\[500px\] {
   width: 500px;
 }
@@ -197,8 +203,14 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 .flex-1 {
   flex: 1;
 }
+.border-collapse {
+  border-collapse: collapse;
+}
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+}
+.resize {
+  resize: both;
 }
 .flex-col {
   flex-direction: column;
@@ -221,6 +233,10 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 }
 .underline {
   text-decoration-line: underline;
+}
+.outline {
+  outline-style: var(--tw-outline-style);
+  outline-width: 1px;
 }
 .filter {
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -281,6 +297,11 @@ html, body, #root {
   inherits: false;
 }
 @property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-outline-style {
   syntax: "*";
   inherits: false;
   initial-value: solid;
@@ -347,6 +368,7 @@ html, body, #root {
       --tw-skew-x: initial;
       --tw-skew-y: initial;
       --tw-border-style: solid;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
