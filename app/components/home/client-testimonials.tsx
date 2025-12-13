@@ -450,10 +450,13 @@ const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
                   role="article"
                   aria-label={`Testimonial by ${data.author}`}
                   onMouseEnter={(e: any) => {
+                     if (isMobile) return; // stop hover on mobile
                     e.currentTarget.style.transform = "translateY(-6px)";
                     e.currentTarget.style.boxShadow = "0 0px 30px rgba(10, 20, 40, 0.20)";
+                   
                   }}
                   onMouseLeave={(e: any) => {
+                    if (isMobile) return; //  stop hover on mobile
                     e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow = "";
                   }}
