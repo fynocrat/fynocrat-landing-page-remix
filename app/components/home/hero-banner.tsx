@@ -22,8 +22,8 @@ const Star = ({
   size?: number;
   color?: string;
 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-    <path d="M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z" />
+  <svg width={size} height={size} viewBox='0 0 24 24' fill={color}>
+    <path d='M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z' />
   </svg>
 );
 
@@ -96,14 +96,14 @@ export default function HomeBanner({
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "100vh",
         overflow: "hidden",
         fontFamily: "Poppins, sans-serif",
         paddingBottom: 80,
+        background: "#002b47",
       }}
     >
       {/* ⭐ HERO BACKGROUND IMAGE (NO CLS) */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           inset: 0,
@@ -129,12 +129,11 @@ export default function HomeBanner({
             alt="Fynocrat Research Banner"
           />
         </picture>
-      </div>
+      </div> */}
 
       {/* ⭐ FOREGROUND CONTENT */}
       <div style={{ position: "relative", zIndex: 10 }}>
-        <Container size="xl" style={{ maxWidth: 1400, padding: 0 }}>
-          
+        <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
           {/* ⭐ TOP BAR */}
           <div
             style={{
@@ -151,8 +150,8 @@ export default function HomeBanner({
             }}
           >
             <Image
-              src="/logo.png"
-              alt="Fynocrat"
+              src='/logo.png'
+              alt='Fynocrat'
               width={isMobile ? 180 : 190}
               style={{
                 width: isMobile ? 180 : 190,
@@ -188,7 +187,6 @@ export default function HomeBanner({
           >
             {/* ⭐ LEFT TEXT SECTION */}
             <div style={{ paddingTop: isMobile ? 20 : 60 }}>
-              
               <h1
                 style={{
                   color: "#fff",
@@ -275,7 +273,7 @@ export default function HomeBanner({
                       height: isMobile ? 24 : 30,
                     }}
                   >
-                    <Star size={isMobile ? 24 : 30} color="#FFE7A4" />
+                    <Star size={isMobile ? 24 : 30} color='#FFE7A4' />
                     <div
                       style={{
                         position: "absolute",
@@ -286,7 +284,7 @@ export default function HomeBanner({
                         overflow: "hidden",
                       }}
                     >
-                      <Star size={isMobile ? 24 : 30} color="#FFC043" />
+                      <Star size={isMobile ? 24 : 30} color='#FFC043' />
                     </div>
                   </div>
                 </div>
@@ -295,7 +293,7 @@ export default function HomeBanner({
 
             {/* ⭐ RIGHT FORM SECTION */}
             <div
-              id="contact-form-wrapper"
+              id='contact-form-wrapper'
               style={{
                 marginTop: isMobile ? 20 : -10,
                 display: "flex",
@@ -316,57 +314,57 @@ export default function HomeBanner({
               </Text>
 
               <Paper
-                radius="md"
-                shadow="xl"
-                className="form-box"
+                radius='md'
+                shadow='xl'
+                className='form-box'
                 style={{ width: isMobile ? "100%" : 420 }}
               >
                 <fetcher.Form
                   ref={mainFormRef}
-                  method="post"
+                  method='post'
                   onSubmit={handleFormSubmit}
                 >
                   <Stack>
                     <TextInput
-                      name="name"
-                      label="Name"
+                      name='name'
+                      label='Name'
                       required
-                      radius="md"
+                      radius='md'
                       disabled={isSubmitting}
-                      placeholder="john doe"
+                      placeholder='john doe'
                     />
 
                     <TextInput
-                      name="email"
-                      label="Email"
+                      name='email'
+                      label='Email'
                       required
-                      radius="md"
+                      radius='md'
                       disabled={isSubmitting}
-                      placeholder="your@email.com"
+                      placeholder='your@email.com'
                     />
 
                     <TextInput
-                      name="phone"
-                      label="Phone"
+                      name='phone'
+                      label='Phone'
                       required
-                      radius="md"
+                      radius='md'
                       disabled={isSubmitting}
-                      placeholder="+91 98765 43210"
+                      placeholder='+91 98765 43210'
                     />
 
                     <Textarea
-                      name="message"
-                      label="Your message"
+                      name='message'
+                      label='Your message'
                       required
                       minRows={4}
-                      radius="md"
+                      radius='md'
                       disabled={isSubmitting}
-                      placeholder="I am interested in receiving stock ideas."
+                      placeholder='I am interested in receiving stock ideas.'
                     />
 
                     <input
-                      type="hidden"
-                      name="g-recaptcha-response"
+                      type='hidden'
+                      name='g-recaptcha-response'
                       value={recaptchaToken ?? ""}
                     />
 
@@ -383,9 +381,9 @@ export default function HomeBanner({
                     )}
 
                     <Button
-                      type="submit"
+                      type='submit'
                       fullWidth
-                      radius="md"
+                      radius='md'
                       disabled={!captchaChecked || isSubmitting}
                       loading={isSubmitting}
                       style={{ height: 45, fontSize: 16, fontWeight: 600 }}

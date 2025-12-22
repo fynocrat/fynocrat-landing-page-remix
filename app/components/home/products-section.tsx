@@ -103,6 +103,7 @@ export default function ProductsSection({
                 flexDirection: "column",
                 justifyContent: "space-between",
                 transition: "transform .18s ease, box-shadow .18s ease",
+                border: "2px solid #f6f6f6",
               }}
               onMouseEnter={(e: any) => {
                 e.currentTarget.style.transform = "translateY(-6px)";
