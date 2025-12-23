@@ -67,7 +67,7 @@ export default function ProductsSection({
                 color: "#0b1220",
                 fontFamily: "Poppins, Inter, sans-serif",
                 fontWeight: 800,
-                fontSize: 48,
+                fontSize: 40,
                 lineHeight: 1.02,
                 marginBottom: 18,
               }}
@@ -94,63 +94,75 @@ export default function ProductsSection({
           mb={40}
         >
           {products.map((p) => (
-            <Card
-              key={p.title}
-              style={{
-                background: "#fff",
-                minHeight: 200,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                transition: "transform .18s ease, box-shadow .18s ease",
-              }}
-              onMouseEnter={(e: any) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow =
-                  "0 0px 30px rgba(10, 20, 40, 0.08)";
-              }}
-              onMouseLeave={(e: any) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "";
-              }}
-            >
-              <div>
-                <Group mb={16}>
-                  <div
-                    style={{
-                      width: 72,
-                      height: 72,
-                      borderRadius: 18,
-                      display: "grid",
-                      placeItems: "center",
-                      background: p.color ?? "#f3f4f6",
-                      boxShadow: `inset 0 1px 0 rgba(255,255,255,0.6)`,
-                    }}
-                  >
-                    {React.cloneElement(p.icon, { size: 36 } as any)}
-                  </div>
-                </Group>
+           <Card
+  key={p.title}
+  style={{
+    background: "#fff",
+    minHeight: 180,
+    padding: isMobile ? 18 : 24,
+    transition: "transform .18s ease, box-shadow .18s ease",
+  }}
+  onMouseEnter={(e: any) => {
+    e.currentTarget.style.transform = "translateY(-6px)";
+    e.currentTarget.style.boxShadow =
+      "0 0px 30px rgba(10, 20, 40, 0.08)";
+  }}
+  onMouseLeave={(e: any) => {
+    e.currentTarget.style.transform = "translateY(0)";
+    e.currentTarget.style.boxShadow = "";
+  }}
+>
+  {/* ICON | TEXT (SAME FOR ALL SCREENS) */}
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: isMobile ? 14 : 18,
+    }}
+  >
+    {/* ICON */}
+    <div
+      style={{
+        width: isMobile ? 56 : 72,
+        height: isMobile ? 56 : 72,
+        borderRadius: 16,
+        display: "grid",
+        placeItems: "center",
+        background: p.color ?? "#f3f4f6",
+        flexShrink: 0,
+      }}
+    >
+      {React.cloneElement(p.icon, {
+        size: isMobile ? 28 : 36,
+      } as any)}
+    </div>
 
-                <Text
-                  fw={700}
-                  fz={20}
-                  style={{
-                    color: "#0b1220",
-                    textAlign: "left",
-                  }}
-                >
-                  {p.title}
-                </Text>
+    {/* TEXT */}
+    <div>
+      <Text
+        fw={700}
+        fz={isMobile ? 18 : 20}
+        style={{
+          color: "#0b1220",
+          marginBottom: 6,
+        }}
+      >
+        {p.title}
+      </Text>
 
-                <Text
-                  fz={14}
-                  mt={10}
-                  style={{ color: "#6b7280", textAlign: "left" }}
-                >
-                  {p.desc}
-                </Text>
-              </div>
-            </Card>
+      <Text
+        fz={14}
+        style={{
+          color: "#6b7280",
+          lineHeight: 1.6,
+        }}
+      >
+        {p.desc}
+      </Text>
+    </div>
+  </div>
+</Card>
+
           ))}
         </SimpleGrid>
 

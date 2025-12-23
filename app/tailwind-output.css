@@ -149,6 +149,9 @@ button, input:where([type='button'], [type='reset'], [type='submit']), ::file-se
 .visible {
   visibility: visible;
 }
+.absolute {
+  position: absolute;
+}
 .fixed {
   position: fixed;
 }
