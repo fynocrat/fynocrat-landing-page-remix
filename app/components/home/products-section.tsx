@@ -9,12 +9,13 @@ import {
   Card,
   Group,
   Button,
+  Image,
 } from "@mantine/core";
 
 export type ProductItem = {
   title: string;
   desc: string;
-  icon: React.ReactElement;
+  icon: string; // image path
   href?: string;
   color?: string;
   accent?: string;
@@ -36,8 +37,8 @@ export default function ProductsSection({
       style={{
         width: "100%",
         backgroundColor: "#ffffff",
-        paddingTop: 80,
-        paddingBottom: 80,
+        paddingTop: isMobile ? 40 : 80,
+        paddingBottom: isMobile ? 40 : 80,
       }}
     >
       <Container size='xl' style={{ maxWidth: 1200 }}>
@@ -45,7 +46,7 @@ export default function ProductsSection({
         <SimpleGrid
           cols={{ base: 1, md: 2 }}
           spacing={30}
-          verticalSpacing={20}
+          verticalSpacing={isMobile ? 5 : 20}
           mb={40}
         >
           <div>
@@ -67,7 +68,7 @@ export default function ProductsSection({
                 color: "#0b1220",
                 fontFamily: "Poppins, Inter, sans-serif",
                 fontWeight: 800,
-                fontSize: 40,
+                fontSize: isMobile ? 24 : 48,
                 lineHeight: 1.02,
                 marginBottom: 18,
               }}
@@ -77,7 +78,13 @@ export default function ProductsSection({
           </div>
 
           <div style={{ alignSelf: "center" }}>
-            <Text style={{ color: "#4b5563", fontSize: 18, lineHeight: 1.6 }}>
+            <Text
+              style={{
+                color: "#4b5563",
+                fontSize: isMobile ? 14 : 18,
+                lineHeight: 1.6,
+              }}
+            >
               Build long-term wealth, capture tactical market opportunities, and
               access premium research — all delivered through clearly structured
               investment products designed to fit your risk profile and time
@@ -90,84 +97,93 @@ export default function ProductsSection({
         <SimpleGrid
           cols={{ base: 1, sm: 2, md: 3 }}
           spacing={28}
-          verticalSpacing={10}
+          verticalSpacing={20}
           mb={40}
         >
           {products.map((p) => (
-           <Card
-  key={p.title}
-  style={{
-    background: "#fff",
-    minHeight: 180,
-    padding: isMobile ? 18 : 24,
-    transition: "transform .18s ease, box-shadow .18s ease",
-  }}
-  onMouseEnter={(e: any) => {
-    e.currentTarget.style.transform = "translateY(-6px)";
-    e.currentTarget.style.boxShadow =
-      "0 0px 30px rgba(10, 20, 40, 0.08)";
-  }}
-  onMouseLeave={(e: any) => {
-    e.currentTarget.style.transform = "translateY(0)";
-    e.currentTarget.style.boxShadow = "";
-  }}
->
-  {/* ICON | TEXT (SAME FOR ALL SCREENS) */}
-  <div
-    style={{
-      display: "flex",
-      alignItems: "center",
-      gap: isMobile ? 14 : 18,
-    }}
-  >
-    {/* ICON */}
-    <div
-      style={{
-        width: isMobile ? 56 : 72,
-        height: isMobile ? 56 : 72,
-        borderRadius: 16,
-        display: "grid",
-        placeItems: "center",
-        background: p.color ?? "#f3f4f6",
-        flexShrink: 0,
-      }}
-    >
-      {React.cloneElement(p.icon, {
-        size: isMobile ? 28 : 36,
-      } as any)}
-    </div>
+            <Card
+              key={p.title}
+              style={{
+                backgroundColor: p.color ?? "#ffffff", // ✅ FULL BOX COLOR
+                minHeight: isMobile ? undefined : 220,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                borderRadius: 16,
+                transition: "transform .2s ease, box-shadow .2s ease",
 
-    {/* TEXT */}
-    <div>
-      <Text
-        fw={700}
-        fz={isMobile ? 18 : 20}
-        style={{
-          color: "#0b1220",
-          marginBottom: 6,
-        }}
-      >
-        {p.title}
-      </Text>
+                // base depth
+                // boxShadow: "0 10px 30px rgba(15, 23, 42, 0.06)",
+              }}
+              onMouseEnter={(e: any) => {
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow =
+                  "0 20px 45px rgba(15, 23, 42, 0.12)";
+              }}
+              onMouseLeave={(e: any) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0 10px 30px rgba(15, 23, 42, 0.06)";
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: isMobile ? "row" : "column",
+                  gap: isMobile ? 16 : 0,
+                  alignItems: isMobile ? "flex-start" : "flex-start",
+                }}
+              >
+                {/* ICON */}
+                <div
+                  style={{
+                    width: 72,
+                    height: 72,
+                    minWidth: 72, // ✅ important for mobile row
+                    borderRadius: 18,
+                    display: "grid",
+                    placeItems: "center",
+                    background: "#ffffff",
+                    // boxShadow: "0 10px 20px rgba(0,0,0,0.15)",
+                  }}
+                >
+                  <Image
+                    src={p.icon}
+                    alt={p.title}
+                    w={36}
+                    h={36}
+                    fit='contain'
+                  />
+                </div>
 
-      <Text
-        fz={14}
-        style={{
-          color: "#6b7280",
-          lineHeight: 1.6,
-        }}
-      >
-        {p.desc}
-      </Text>
-    </div>
-  </div>
-</Card>
+                {/* TEXT */}
+                <div>
+                  <Text
+                    fw={700}
+                    fz={isMobile ? 18 : 20}
+                    style={{
+                      color: "#0b1220",
+                      textAlign: "left",
+                    }}
+                  >
+                    {p.title}
+                  </Text>
 
+                  <Text
+                    fz={isMobile ? 13 : 14}
+                    mt={6}
+                    style={{ color: "#6b7280", textAlign: "left" }}
+                  >
+                    {p.desc}
+                  </Text>
+                </div>
+              </div>
+            </Card>
           ))}
         </SimpleGrid>
 
         {/* CTA */}
-        <div style={{ textAlign: "left" }}>
+        <div style={{ textAlign: isMobile ? "center" : "left" }}>
           <Button
             size='lg'
             radius='md'
@@ -180,7 +196,7 @@ export default function ProductsSection({
             }}
             onClick={() => setFormOpen(true)}
           >
-            Get Expert Research
+            Get Stock Idea
           </Button>
         </div>
       </Container>

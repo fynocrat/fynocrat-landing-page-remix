@@ -29,44 +29,52 @@ import Footer from "~/components/footer";
 /* -------------------------------------------------------------------------- */
 
 const IconTrendingUp = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <path d="M3 17l6-6 4 4 8-8" stroke="#0f172a" strokeWidth="1.6" />
-    <path d="M21 21v-4h-4" stroke="#0f172a" strokeWidth="1.6" />
+  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+    <path d='M3 17l6-6 4 4 8-8' stroke='#0f172a' strokeWidth='1.6' />
+    <path d='M21 21v-4h-4' stroke='#0f172a' strokeWidth='1.6' />
   </svg>
 );
 
 const IconArrowBounce = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <path d="M3 12h6l2-3 4 6 6-9" stroke="#0f172a" strokeWidth="1.6" />
+  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+    <path d='M3 12h6l2-3 4 6 6-9' stroke='#0f172a' strokeWidth='1.6' />
   </svg>
 );
 
 const IconZap = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" stroke="#0f172a" strokeWidth="1.6" />
+  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+    <path
+      d='M13 2L3 14h7l-1 8 10-12h-7l1-8z'
+      stroke='#0f172a'
+      strokeWidth='1.6'
+    />
   </svg>
 );
 
 const IconRocket = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
     <path
-      d="M12 2s-4 4-7 7c-1.5 1.5-3 6-3 6s4-1.2 5.5-2.7C11 11 17 7 17 7s-1.8-1.6-5-5z"
-      stroke="#0f172a"
-      strokeWidth="1.6"
+      d='M12 2s-4 4-7 7c-1.5 1.5-3 6-3 6s4-1.2 5.5-2.7C11 11 17 7 17 7s-1.8-1.6-5-5z'
+      stroke='#0f172a'
+      strokeWidth='1.6'
     />
   </svg>
 );
 
 const IconShieldCheck = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <path d="M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z" stroke="#0f172a" strokeWidth="1.6" />
-    <path d="M9.5 12.5l1.8 1.8L15 10" stroke="#0f172a" strokeWidth="1.6" />
+  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+    <path
+      d='M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z'
+      stroke='#0f172a'
+      strokeWidth='1.6'
+    />
+    <path d='M9.5 12.5l1.8 1.8L15 10' stroke='#0f172a' strokeWidth='1.6' />
   </svg>
 );
 
 const IconDiamond = () => (
-  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-    <path d="M3 9l9-6 9 6-4 10H7L3 9z" stroke="#0f172a" strokeWidth="1.6" />
+  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+    <path d='M3 9l9-6 9 6-4 10H7L3 9z' stroke='#0f172a' strokeWidth='1.6' />
   </svg>
 );
 
@@ -98,7 +106,10 @@ export const action = async ({ request }: { request: Request }) => {
     await createEmail(formData);
     return json({ success: true, message: "Form submitted successfully" });
   } catch {
-    return json({ success: false, message: "Submission failed" }, { status: 500 });
+    return json(
+      { success: false, message: "Submission failed" },
+      { status: 500 }
+    );
   }
 };
 
@@ -120,49 +131,54 @@ export default function Home() {
 
   const products = [
     {
-      title: "Wealth Builder Portfolio",
-      desc: "Long-term wealth compounding portfolio.",
-      icon: <IconTrendingUp />,
+      title: "Long Term Portfolio",
+      desc: "Model portfolio of 15–18 stocks across emerging themes — built to compound wealth over the long term.",
+      icon: "/product-icons/wealth_builder_icon.png",
       href: "https://fynocrat.com/invest/wealth-builder",
-      accent: "#6E44FF",
+      color: "#EEF2FF",
+      accent: "#4F46E5",
     },
     {
-      title: "Mauka",
-      desc: "Medium-term opportunities during corrections.",
-      icon: <IconArrowBounce />,
+      title: "Mid Term Investments",
+      desc: "Leverage market corrections to buy strong companies at attractive valuations for medium-term gains.",
+      icon: "/product-icons/mauka_icon.png",
       href: "https://fynocrat.com/invest/mauka",
-      accent: "#2D6EF6",
+      color: "#EFF6FF",
+      accent: "#2563EB",
     },
     {
-      title: "T-20",
-      desc: "Short-term high conviction trades.",
-      icon: <IconZap />,
+      title: "Short-Term Investments",
+      desc: "Handpicked short-term trades with clear risk-management — quick moves aimed at outsized returns.",
+      icon: "/product-icons/t_20_icon.png",
       href: "https://fynocrat.com/invest/t-20",
-      accent: "#B23327",
+      color: "#FFFBEB",
+      accent: "#D97706",
     },
     {
-      title: "IPO Corner",
-      desc: "IPO research & insights.",
-      icon: <IconRocket />,
+      title: "IPO's (Non-SME)",
+      desc: "Research-first access to high-potential IPOs — analysis, verdicts, and actionable entry ideas.",
+      icon: "/product-icons/ipo_icon.png",
       href: "https://fynocrat.com/invest/ipo",
-      accent: "#4F3FB3",
+      color: "#F5F3FF",
+      accent: "#6D28D9",
     },
     {
-      title: "Blue Chip Edge",
-      desc: "Stable blue-chip opportunities.",
-      icon: <IconShieldCheck />,
+      title: "Blue Chip Recommendations",
+      desc: "A curated selection of blue-chips with real growth potential — stability with upside.",
+      icon: "/product-icons/blue_chip_icon.png",
       href: "https://fynocrat.com/invest/blue-chip-edge",
-      accent: "#D66A27",
+      color: "#F8FAFC",
+      accent: "#334155",
     },
     {
       title: "Fynocrat Premium",
-      desc: "HNI & U-HNI personalised advisory.",
-      icon: <IconDiamond />,
+      desc: "360° premium research and advisory designed for HNI & U-HNI clients seeking personalised strategies.",
+      icon: "/product-icons/intelligent_ideas_icon.png",
       href: "https://fynocrat.com/invest/premium",
-      accent: "#2F7D32",
+      color: "#ECFDF5",
+      accent: "#047857",
     },
   ];
-
   /* ----------------------------- FORM SUBMIT ----------------------------- */
 
   const handleFormSubmit = useCallback(
@@ -176,7 +192,11 @@ export default function Home() {
   useEffect(() => {
     setIsSubmitting(fetcher.state === "submitting");
     if (fetcher.data?.success) {
-      showNotification({ title: "Success", message: fetcher.data.message, color: "green" });
+      showNotification({
+        title: "Success",
+        message: fetcher.data.message,
+        color: "green",
+      });
       mainFormRef.current?.reset();
       popupFormRef.current?.reset();
       setFormOpen(false);
@@ -187,7 +207,12 @@ export default function Home() {
 
   const ChatButton = () => (
     <Button
-      onClick={() => window.open("https://api.whatsapp.com/send?phone=918448691150", "_blank")}
+      onClick={() =>
+        window.open(
+          "https://api.whatsapp.com/send?phone=918448691150",
+          "_blank"
+        )
+      }
       leftSection={<IconBrandWhatsapp size={28} />}
       style={{
         position: "fixed",
@@ -209,11 +234,16 @@ export default function Home() {
         mainFormRef={mainFormRef}
         fetcher={fetcher}
         handleFormSubmit={handleFormSubmit}
+        formOpen={formOpen}
+        setFormOpen={setFormOpen}
       />
-
       {/* <ChatButton /> */}
 
-      <ProductsSection products={products} isMobile={isMobile} setFormOpen={setFormOpen} />
+      <ProductsSection
+        products={products}
+        isMobile={isMobile}
+        setFormOpen={setFormOpen}
+      />
 
       <WhyFynocratSection isMobile={isMobile} setFormOpen={setFormOpen} />
 
@@ -222,13 +252,27 @@ export default function Home() {
       <Footer />
 
       <Modal opened={formOpen} onClose={() => setFormOpen(false)} centered>
-        <fetcher.Form ref={popupFormRef} method="post" onSubmit={handleFormSubmit}>
+        <fetcher.Form
+          ref={popupFormRef}
+          method='post'
+          onSubmit={handleFormSubmit}
+        >
           <Stack>
-            <TextInput name="popup_name" label="Name" required />
-            <TextInput name="popup_email" label="Email" required />
-            <TextInput name="popup_phone" label="Phone" required />
+            <Text
+              style={{
+                fontSize: 20,
+                fontWeight: 600,
+                textAlign: "center",
+              }}
+            >
+              Want Access to Our Next Stock Idea?
+            </Text>
+
+            <TextInput name='popup_name' label='Name' required />
+            <TextInput name='popup_email' label='Email' required />
+            <TextInput name='popup_phone' label='Phone' required />
             {/* <Textarea name="popup_message" label="Message" required /> */}
-            <Button type="submit" loading={isSubmitting}>
+            <Button type='submit' loading={isSubmitting}>
               Submit
             </Button>
           </Stack>

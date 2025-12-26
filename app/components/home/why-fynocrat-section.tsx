@@ -21,8 +21,8 @@ export default function WhyFynocratSection({ isMobile, setFormOpen }: Props) {
       style={{
         width: "100%",
         backgroundColor: "#F3F7FF",
-        paddingTop: 80,
-        paddingBottom: 80,
+        paddingTop: isMobile ? 40 : 80,
+        paddingBottom: isMobile ? 40 : 80,
         fontFamily: "Poppins, Inter, sans-serif",
       }}
     >
@@ -34,7 +34,7 @@ export default function WhyFynocratSection({ isMobile, setFormOpen }: Props) {
             style={{
               color: "#0b1220",
               fontWeight: 800,
-              fontSize: isMobile ? 26 : 36,
+              fontSize: isMobile ? 22 : 36,
               lineHeight: 1.06,
             }}
           >
@@ -358,7 +358,7 @@ export default function WhyFynocratSection({ isMobile, setFormOpen }: Props) {
             }}
             onClick={() => setFormOpen(true)}
           >
-            Talk to our team
+            Get Stock Idea
           </Button>
         </div>
       </Container>

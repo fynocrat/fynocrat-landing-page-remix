@@ -4,7 +4,7 @@ import { Box, Container, SimpleGrid, Text, Image, Anchor } from "@mantine/core";
 export default function Footer() {
   return (
     <Box
-      component="footer"
+      component='footer'
       style={{
         width: "100%",
         backgroundColor: "#0b1727",
@@ -15,11 +15,10 @@ export default function Footer() {
           "Poppins, Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
       }}
     >
-      <Container size="xl" style={{ maxWidth: 1200 }}>
-        
+      <Container size='xl' style={{ maxWidth: 1200 }}>
         {/* Logo row */}
         <Box style={{ marginBottom: 32 }}>
-          <Image src="/logo.png" w={140} h="auto" alt="Fynocrat" />
+          <Image src='/logo.png' w={140} h='auto' alt='Fynocrat' />
         </Box>
 
         {/* Three-column details row */}
@@ -34,14 +33,14 @@ export default function Footer() {
               style={{
                 fontWeight: 600,
                 marginBottom: 10,
-                fontSize: 14,
+                fontSize: 12,
                 color: "#f9fafb",
               }}
             >
               SEBI Registered Research Analyst Details
             </Text>
 
-            <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
+            <Text style={{ fontSize: 12, lineHeight: 1.7 }}>
               Registered Name: Fynocrat Technologies
               <br />
               Private Limited
@@ -62,14 +61,13 @@ export default function Footer() {
               <br />
               BSE Enlistment No.: 5759
               <br />
-
               {/* ✔ Updated Anchor (opens certificate) */}
               <Anchor
-                href="/sebi_certificate.png"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='/sebi_certificate.png'
+                target='_blank'
+                rel='noopener noreferrer'
                 style={{
-                  fontSize: 13.5,
+                  fontSize: 12,
                   marginTop: 4,
                   marginBottom: 4,
                   display: "inline-block",
@@ -79,7 +77,6 @@ export default function Footer() {
               >
                 View Registration Certificate
               </Anchor>
-
               <br />
               Valid Till: Mar 14, 2028
               <br />
@@ -107,14 +104,14 @@ export default function Footer() {
               style={{
                 fontWeight: 600,
                 marginBottom: 10,
-                fontSize: 14,
+                fontSize: 12,
                 color: "#f9fafb",
               }}
             >
               Principal Place of Business:
             </Text>
 
-            <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
+            <Text style={{ fontSize: 12, lineHeight: 1.7 }}>
               Office No. 910, 9th Floor, Tower A,
               <br />
               Ithum Tower, Sec 62, Noida, Delhi(NCR) 201301
@@ -131,14 +128,14 @@ export default function Footer() {
               style={{
                 fontWeight: 600,
                 marginBottom: 10,
-                fontSize: 14,
+                fontSize: 12,
                 color: "#f9fafb",
               }}
             >
               SEBI Office Details:
             </Text>
 
-            <Text style={{ fontSize: 13.5, lineHeight: 1.7 }}>
+            <Text style={{ fontSize: 12, lineHeight: 1.7 }}>
               SEBI Bhavan BKC, Plot No.C4-A, 'G' Block Bandra-Kurla
               <br />
               Complex,
@@ -161,7 +158,7 @@ export default function Footer() {
         {/* Bottom text */}
         <Text
           style={{
-            fontSize: 13,
+            fontSize: 12,
             textAlign: "left",
             marginBottom: 10,
             color: "#d1d5db",
@@ -172,7 +169,7 @@ export default function Footer() {
 
         <Text
           style={{
-            fontSize: 11.5,
+            fontSize: 10,
             lineHeight: 1.7,
             textAlign: "left",
             color: "#9ca3af",
@@ -188,7 +185,7 @@ export default function Footer() {
 
         <Text
           style={{
-            fontSize: 11.5,
+            fontSize: 10,
             lineHeight: 1.7,
             textAlign: "left",
             color: "#9ca3af",

@@ -37,7 +37,7 @@ const Stars: React.FC<{ count?: number; size?: number }> = ({
         <FaStar
           key={i}
           size={size}
-          color="#ffee00"
+          color='#ffee00'
           style={{ display: "block", transform: "translateY(-1px)" }}
         />
       ))}
@@ -338,7 +338,9 @@ const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
 
   /* ---------- animation refs & state (added) ---------- */
   const containerRef = React.useRef<HTMLDivElement | null>(null);
-  const [visibleMap, setVisibleMap] = React.useState<Record<string, boolean>>({});
+  const [visibleMap, setVisibleMap] = React.useState<Record<string, boolean>>(
+    {}
+  );
 
   React.useEffect(() => {
     // If mobile and animations are disabled, mark everything visible immediately
@@ -418,21 +420,30 @@ const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
             whiteSpace: "pre-line",
           }}
         >
-          Our core values are at the heart of all that we do. They are integrated into our daily location lives and help us to remember our customers always come first, the last thank you should always come from us.
+          Our core values are at the heart of all that we do. They are
+          integrated into our daily location lives and help us to remember our
+          customers always come first, the last thank you should always come
+          from us.
         </Text>
         <Space h={40} />
       </Container>
 
       {/* GRID */}
-      <Container size="xl" style={{ maxWidth: 1200 }}>
+      <Container size='xl' style={{ maxWidth: 1200 }}>
         <div ref={containerRef}>
-          <SimpleGrid cols={isMobile ? 1 : 3} style={{ maxWidth: 1200, margin: "auto" }}>
+          <SimpleGrid
+            cols={isMobile ? 1 : 3}
+            style={{ maxWidth: 1200, margin: "auto" }}
+          >
             {currentItems.map((data, index) => {
               const id = `${data.author}-${index}`;
               const isVisible = !!visibleMap[id];
 
-              const baseClass = "p-4 rounded-lg will-change-transform will-change-opacity";
-              const animClass = isVisible ? "testimonial-reveal" : "testimonial-hidden";
+              const baseClass =
+                "p-4 rounded-lg will-change-transform will-change-opacity";
+              const animClass = isVisible
+                ? "testimonial-reveal"
+                : "testimonial-hidden";
 
               return (
                 <Box
@@ -447,11 +458,12 @@ const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
                     borderRadius: 12,
                     transition: "transform .18s ease, box-shadow .18s ease",
                   }}
-                  role="article"
+                  role='article'
                   aria-label={`Testimonial by ${data.author}`}
                   onMouseEnter={(e: any) => {
                     e.currentTarget.style.transform = "translateY(-6px)";
-                    e.currentTarget.style.boxShadow = "0 0px 30px rgba(10, 20, 40, 0.20)";
+                    e.currentTarget.style.boxShadow =
+                      "0 0px 30px rgba(10, 20, 40, 0.20)";
                   }}
                   onMouseLeave={(e: any) => {
                     e.currentTarget.style.transform = "translateY(0)";
@@ -463,24 +475,47 @@ const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
                     style={{
                       width: "100%",
                       justifyContent: "space-between",
+                      alignItems: "flex-start",
                     }}
                   >
-                    <LazyImage src={data.img} width={60} height={60} alt={data.alt} />
+                    {/* LEFT: Avatar + Name + Stars */}
+                    <Group gap={12} style={{ alignItems: "center" }}>
+                      <LazyImage
+                        src={data.img}
+                        width={60}
+                        height={60}
+                        alt={data.alt}
+                      />
 
-                    {/* big quote icon */}
-                    <Box style={{ width: 30 }}>
+                      <div>
+                        <Text
+                          style={{
+                            color: "#fff",
+                            fontWeight: 700,
+                            lineHeight: 1.2,
+                          }}
+                        >
+                          {data.author}
+                        </Text>
+                        <Stars size={14} />
+                      </div>
+                    </Group>
+
+                    {/* RIGHT: Quote icon */}
+                    <Box style={{ width: 30, flexShrink: 0 }}>
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="#093245ff"
-                        width="100%"
+                        xmlns='http://www.w3.org/2000/svg'
+                        viewBox='0 0 24 24'
+                        fill='#093245ff'
+                        width='100%'
                       >
-                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                        <path d='M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z' />
                       </svg>
                     </Box>
                   </Group>
-
-                  <Text style={{ color: "#fff", fontSize: 14, lineHeight: "24px" }}>
+                  <Text
+                    style={{ color: "#fff", fontSize: 14, lineHeight: "24px" }}
+                  >
                     {data.text}
                   </Text>
 
@@ -488,20 +523,12 @@ const Testimonials = ({ isMobile, animateOnMobile = false }: Props) => {
 
                   <a
                     href={data.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                     style={{ color: "#fff", fontSize: 14 }}
                   >
                     Read More
                   </a>
-
-                  <Space h={20} />
-
-                  {/* AUTHOR */}
-                  <Text style={{ color: "#fff", fontWeight: 700 }}>{data.author}</Text>
-
-                  {/* STARS  ⭐⭐⭐⭐⭐ */}
-                  <Stars size={14} />
                 </Box>
               );
             })}
