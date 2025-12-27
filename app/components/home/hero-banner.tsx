@@ -14,6 +14,10 @@ import {
   Space,
 } from "@mantine/core";
 import LeadForm from "./LeadForm";
+/* ================= FORM VALIDATION ================= */
+const NAME_REGEX = /^[A-Za-z ]{2,50}$/;
+const EMAIL_REGEX = /^[a-zA-Z0-9._]{3,30}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const PHONE_REGEX = /^[0-9]{10}$/;
 
 /* ❌ COMMENTED — reCAPTCHA */
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -26,8 +30,8 @@ const Star = ({
   size?: number;
   color?: string;
 }) => (
-  <svg width={size} height={size} viewBox='0 0 24 24' fill={color}>
-    <path d='M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z' />
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
+    <path d="M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z" />
   </svg>
 );
 
@@ -50,6 +54,43 @@ export default function HomeBanner({
   setFormOpen,
 }: Props) {
   const [loadCaptcha, setLoadCaptcha] = useState(false);
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+  }>({});
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const fd = new FormData(e.currentTarget);
+
+    const data = {
+      name: String(fd.get("name") || ""),
+      email: String(fd.get("email") || ""),
+      phone: String(fd.get("phone") || ""),
+    };
+
+    const newErrors: typeof errors = {};
+
+    if (!NAME_REGEX.test(data.name))
+      newErrors.name = "Only alphabets are allowed";
+
+    if (!EMAIL_REGEX.test(data.email)) {
+      newErrors.email = "Enter a valid email address";
+    } else if (data.email.split("@")[0].length > 30) {
+      newErrors.email = "Email username too long";
+    }
+
+    if (!PHONE_REGEX.test(data.phone))
+      newErrors.phone = "Phone must be 10 digits (0–9)";
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) return;
+
+    // ✅ call existing submit logic
+    fetcher.submit(e.currentTarget);
+  };
 
   // Lazy-load CAPTCHA when form enters viewport
   useEffect(() => {
@@ -102,7 +143,7 @@ export default function HomeBanner({
       </div>
       {/* ⭐ FOREGROUND CONTENT */}
       <div style={{ position: "relative", zIndex: 10 }}>
-        <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
+        <Container size="xl" style={{ maxWidth: 1400, padding: 0 }}>
           {/* ⭐ TOP BAR */}
           <div
             style={{
@@ -119,8 +160,8 @@ export default function HomeBanner({
             }}
           >
             <Image
-              src='/logo.png'
-              alt='Fynocrat'
+              src="/logo.png"
+              alt="Fynocrat"
               width={isMobile ? 180 : 190}
               style={{
                 width: isMobile ? 180 : 190,
@@ -250,7 +291,7 @@ export default function HomeBanner({
                         height: isMobile ? 24 : 30,
                       }}
                     >
-                      <Star size={isMobile ? 24 : 30} color='#FFE7A4' />
+                      <Star size={isMobile ? 24 : 30} color="#FFE7A4" />
                       <div
                         style={{
                           position: "absolute",
@@ -261,7 +302,7 @@ export default function HomeBanner({
                           overflow: "hidden",
                         }}
                       >
-                        <Star size={isMobile ? 24 : 30} color='#FFC043' />
+                        <Star size={isMobile ? 24 : 30} color="#FFC043" />
                       </div>
                     </div>
                   </div>
@@ -287,7 +328,7 @@ export default function HomeBanner({
 
             {!isMobile && (
               <div
-                id='contact-form-wrapper'
+                id="contact-form-wrapper"
                 style={{
                   marginTop: isMobile ? 20 : -10,
                   display: "flex",
@@ -308,42 +349,59 @@ export default function HomeBanner({
                 </Text>
 
                 <Paper
-                  radius='md'
-                  shadow='xl'
-                  className='form-box'
+                  radius="md"
+                  shadow="xl"
+                  className="form-box"
                   style={{ width: isMobile ? "100%" : 420 }}
                 >
                   <fetcher.Form
                     ref={mainFormRef}
-                    method='post'
-                    onSubmit={handleFormSubmit}
+                    method="post"
+                    onSubmit={onSubmit}
                   >
                     <Stack>
                       <TextInput
-                        name='name'
-                        label='Name'
+                        name="name"
+                        label="Name"
                         required
-                        radius='md'
-                        disabled={isSubmitting}
-                        placeholder='john doe'
+                        radius="md"
+                        placeholder="john doe"
+                        error={errors.name}
+                        onChange={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(
+                            /[^A-Za-z ]/g,
+                            ""
+                          );
+                          setErrors((er) => ({ ...er, name: undefined }));
+                        }}
                       />
 
                       <TextInput
-                        name='email'
-                        label='Email'
-                        required
-                        radius='md'
-                        disabled={isSubmitting}
-                        placeholder='your@email.com'
+                        name="email"
+                        label="Email"
+                        error={errors.email}
+                        onInput={(e) => {
+                          const input = e.currentTarget;
+                          input.value = input.value.replace(/\s/g, "");
+                          setErrors((er) => ({ ...er, email: undefined }));
+                        }}
                       />
 
                       <TextInput
-                        name='phone'
-                        label='Phone'
+                        name="phone"
+                        label="Phone"
                         required
-                        radius='md'
-                        disabled={isSubmitting}
-                        placeholder='+91 98765 43210'
+                        radius="md"
+                        placeholder="9876543210"
+                        maxLength={10}
+                        error={errors.phone}
+                        onChange={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(
+                            /\D/g,
+                            ""
+                          );
+                          setErrors((er) => ({ ...er, phone: undefined }));
+                        }}
                       />
 
                       {/* <Textarea
@@ -352,7 +410,7 @@ export default function HomeBanner({
                       required
                       minRows={4}
                       radius="md"
-                      disabled={isSubmitting}
+                 
                       placeholder="I am interested in receiving stock ideas."
                     /> */}
 
@@ -378,9 +436,9 @@ export default function HomeBanner({
                     */}
 
                       <Button
-                        type='submit'
+                        type="submit"
                         fullWidth
-                        radius='md'
+                        radius="md"
                         disabled={isSubmitting}
                         loading={isSubmitting}
                         style={{ height: 45, fontSize: 16, fontWeight: 600 }}
@@ -396,8 +454,8 @@ export default function HomeBanner({
             {/* ⭐ MOBILE CTA BUTTON */}
             {isMobile && (
               <Button
-                radius='xl'
-                size='md'
+                radius="xl"
+                size="md"
                 style={{
                   marginTop: 24,
                   backgroundColor: "#0080ff",
@@ -428,7 +486,7 @@ export default function HomeBanner({
         }}
       >
         <Button
-          radius='xl'
+          radius="xl"
           style={{
             backgroundColor: "#0080ff",
             color: "#fff",
@@ -440,29 +498,24 @@ export default function HomeBanner({
           Send Me Stock Idea
         </Button>
       </Box>
-      {/* <Modal
-        opened={formOpen}
-        onClose={() => setFormOpen(false)}
-        centered
-        withCloseButton
-        title={
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: 600,
-              textAlign: "center",
-            }}
-          >
-            Want Access to Our Next Stock Idea?
-          </Text>
-        }
-      >
+      <Modal opened={formOpen} onClose={() => setFormOpen(false)} centered>
+        <Text
+          style={{
+            fontSize: 20,
+            fontWeight: 600,
+            textAlign: "center",
+            marginBottom: 12,
+          }}
+        >
+          Want Access to Our Next Stock Idea?
+        </Text>
+
         <LeadForm
           fetcher={fetcher}
           isSubmitting={isSubmitting}
           handleFormSubmit={handleFormSubmit}
         />
-      </Modal>{" "} */}
+      </Modal>
     </Box>
   );
 }

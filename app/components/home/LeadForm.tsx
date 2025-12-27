@@ -1,55 +1,54 @@
 import { Stack, TextInput, Button } from "@mantine/core";
+import React, { useState } from "react";
 
-type Props = {
-  isSubmitting: boolean;
-  formRef?: React.RefObject<HTMLFormElement | null>;
-  fetcher: any;
-  handleFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-};
+export default function LeadForm({ fetcher, isSubmitting }: any) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
 
-export default function LeadForm({
-  isSubmitting,
-  formRef,
-  fetcher,
-  handleFormSubmit,
-}: Props) {
   return (
-    <fetcher.Form ref={formRef} method="post" onSubmit={handleFormSubmit}>
+    <fetcher.Form method="post">
       <Stack>
+        {/* NAME – alphabets only */}
         <TextInput
-          name="name"
+          name="popup_name"
           label="Name"
+          value={name}
+          onChange={(e) =>
+            setName(e.target.value.replace(/[^A-Za-z ]/g, ""))
+          }
           required
-          placeholder="John Doe"
-          disabled={isSubmitting}
         />
 
+        {/* EMAIL – normal */}
         <TextInput
-          name="email"
+          name="popup_email"
           label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
-          placeholder="your@email.com"
-          disabled={isSubmitting}
         />
 
+        {/* PHONE – numbers only */}
         <TextInput
-          name="phone"
+          name="popup_phone"
           label="Phone"
+          value={phone}
+          maxLength={14}
+          inputMode="numeric"
+          onChange={(e) =>
+            setPhone(e.target.value.replace(/\D/g, ""))
+          }
           required
-          placeholder="+91 98765 43210"
-          disabled={isSubmitting}
         />
 
-        <Button
-          type="submit"
-          fullWidth
-          loading={isSubmitting}
-          radius="md"
-          style={{ fontWeight: 600 }}
-        >
-          {isSubmitting ? "Submitting..." : "Send Me Stock Idea"}
+        <Button type="submit" loading={isSubmitting}>
+          Submit
         </Button>
       </Stack>
     </fetcher.Form>
   );
 }
+
+
+

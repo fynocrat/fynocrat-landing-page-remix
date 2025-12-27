@@ -24,6 +24,7 @@ import WhyFynocratSection from "~/components/home/why-fynocrat-section";
 import ClientTestimonials from "~/components/home/client-testimonials";
 import Footer from "~/components/footer";
 
+
 /* -------------------------------------------------------------------------- */
 /*                                ICONS (USED)                                */
 /* -------------------------------------------------------------------------- */
@@ -123,6 +124,9 @@ export default function Home() {
 
   const [formOpen, setFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+const [popupName, setPopupName] = useState("");
+  const [popupEmail, setPopupEmail] = useState("");
+  const [popupPhone, setPopupPhone] = useState("");
 
   const mainFormRef = useRef<HTMLFormElement>(null);
   const popupFormRef = useRef<HTMLFormElement>(null);
@@ -196,6 +200,9 @@ export default function Home() {
         title: "Success",
         message: fetcher.data.message,
         color: "green",
+        position: "top-center", // ✅ THIS IS THE KEY
+      autoClose: 3000,
+      withCloseButton: true,
       });
       mainFormRef.current?.reset();
       popupFormRef.current?.reset();
@@ -268,15 +275,43 @@ export default function Home() {
               Want Access to Our Next Stock Idea?
             </Text>
 
-            <TextInput name='popup_name' label='Name' required />
-            <TextInput name='popup_email' label='Email' required />
-            <TextInput name='popup_phone' label='Phone' required />
+          <TextInput
+  name="popup_name"
+  label="Name"
+  value={popupName}
+  onChange={(e) =>
+    setPopupName(e.target.value.replace(/[^A-Za-z ]/g, ""))
+  }
+  required
+/>
+
+<TextInput
+  name="popup_email"
+  label="Email"
+  value={popupEmail}
+  onChange={(e) => setPopupEmail(e.target.value)}
+  required
+/>
+
+<TextInput
+  name="popup_phone"
+  label="Phone"
+  value={popupPhone}
+  maxLength={10}
+  inputMode="numeric"
+  onChange={(e) =>
+    setPopupPhone(e.target.value.replace(/\D/g, ""))
+  }
+  required
+/>
+
             {/* <Textarea name="popup_message" label="Message" required /> */}
             <Button type='submit' loading={isSubmitting}>
               Submit
             </Button>
           </Stack>
         </fetcher.Form>
+        
       </Modal>
     </>
   );
