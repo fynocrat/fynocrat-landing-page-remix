@@ -41,7 +41,7 @@ export default function ProductsSection({
         paddingBottom: isMobile ? 40 : 80,
       }}
     >
-      <Container size='xl' style={{ maxWidth: 1200 }}>
+      <Container size="xl" style={{ maxWidth: 1200 }}>
         {/* HERO ROW (left large, right summary) */}
         <SimpleGrid
           cols={{ base: 1, md: 2 }}
@@ -152,7 +152,7 @@ export default function ProductsSection({
                     alt={p.title}
                     w={36}
                     h={36}
-                    fit='contain'
+                    fit="contain"
                   />
                 </div>
 
@@ -185,9 +185,9 @@ export default function ProductsSection({
         {/* CTA */}
         <div style={{ textAlign: isMobile ? "center" : "left" }}>
           <Button
-            size='lg'
-            radius='md'
-            color='blue'
+            size="lg"
+            radius="md"
+            color="blue"
             style={{
               backgroundColor: "#0080ff",
               fontWeight: 600,

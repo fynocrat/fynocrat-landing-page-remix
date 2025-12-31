@@ -24,58 +24,57 @@ import WhyFynocratSection from "~/components/home/why-fynocrat-section";
 import ClientTestimonials from "~/components/home/client-testimonials";
 import Footer from "~/components/footer";
 
-
 /* -------------------------------------------------------------------------- */
 /*                                ICONS (USED)                                */
 /* -------------------------------------------------------------------------- */
 
 const IconTrendingUp = () => (
-  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
-    <path d='M3 17l6-6 4 4 8-8' stroke='#0f172a' strokeWidth='1.6' />
-    <path d='M21 21v-4h-4' stroke='#0f172a' strokeWidth='1.6' />
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+    <path d="M3 17l6-6 4 4 8-8" stroke="#0f172a" strokeWidth="1.6" />
+    <path d="M21 21v-4h-4" stroke="#0f172a" strokeWidth="1.6" />
   </svg>
 );
 
 const IconArrowBounce = () => (
-  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
-    <path d='M3 12h6l2-3 4 6 6-9' stroke='#0f172a' strokeWidth='1.6' />
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+    <path d="M3 12h6l2-3 4 6 6-9" stroke="#0f172a" strokeWidth="1.6" />
   </svg>
 );
 
 const IconZap = () => (
-  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
     <path
-      d='M13 2L3 14h7l-1 8 10-12h-7l1-8z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
+      d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
     />
   </svg>
 );
 
 const IconRocket = () => (
-  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
     <path
-      d='M12 2s-4 4-7 7c-1.5 1.5-3 6-3 6s4-1.2 5.5-2.7C11 11 17 7 17 7s-1.8-1.6-5-5z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
+      d="M12 2s-4 4-7 7c-1.5 1.5-3 6-3 6s4-1.2 5.5-2.7C11 11 17 7 17 7s-1.8-1.6-5-5z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
     />
   </svg>
 );
 
 const IconShieldCheck = () => (
-  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
     <path
-      d='M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z'
-      stroke='#0f172a'
-      strokeWidth='1.6'
+      d="M12 2l7 3v5c0 5-3.5 9-7 11-3.5-2-7-6-7-11V5l7-3z"
+      stroke="#0f172a"
+      strokeWidth="1.6"
     />
-    <path d='M9.5 12.5l1.8 1.8L15 10' stroke='#0f172a' strokeWidth='1.6' />
+    <path d="M9.5 12.5l1.8 1.8L15 10" stroke="#0f172a" strokeWidth="1.6" />
   </svg>
 );
 
 const IconDiamond = () => (
-  <svg width='48' height='48' viewBox='0 0 24 24' fill='none'>
-    <path d='M3 9l9-6 9 6-4 10H7L3 9z' stroke='#0f172a' strokeWidth='1.6' />
+  <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+    <path d="M3 9l9-6 9 6-4 10H7L3 9z" stroke="#0f172a" strokeWidth="1.6" />
   </svg>
 );
 
@@ -124,7 +123,7 @@ export default function Home() {
 
   const [formOpen, setFormOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-const [popupName, setPopupName] = useState("");
+  const [popupName, setPopupName] = useState("");
   const [popupEmail, setPopupEmail] = useState("");
   const [popupPhone, setPopupPhone] = useState("");
 
@@ -201,8 +200,8 @@ const [popupName, setPopupName] = useState("");
         message: fetcher.data.message,
         color: "green",
         position: "top-center", // ✅ THIS IS THE KEY
-      autoClose: 3000,
-      withCloseButton: true,
+        autoClose: 3000,
+        withCloseButton: true,
       });
       mainFormRef.current?.reset();
       popupFormRef.current?.reset();
@@ -261,7 +260,7 @@ const [popupName, setPopupName] = useState("");
       <Modal opened={formOpen} onClose={() => setFormOpen(false)} centered>
         <fetcher.Form
           ref={popupFormRef}
-          method='post'
+          method="post"
           onSubmit={handleFormSubmit}
         >
           <Stack>
@@ -275,43 +274,47 @@ const [popupName, setPopupName] = useState("");
               Want Access to Our Next Stock Idea?
             </Text>
 
-          <TextInput
-  name="popup_name"
-  label="Name"
-  value={popupName}
-  onChange={(e) =>
-    setPopupName(e.target.value.replace(/[^A-Za-z ]/g, ""))
-  }
-  required
-/>
+            <TextInput
+              name="popup_name"
+              label="Name"
+              placeholder="e.g. John Doe"
+              value={popupName}
+              onChange={(e) =>
+                setPopupName(e.target.value.replace(/[^A-Za-z ]/g, ""))
+              }
+              required
+            />
 
-<TextInput
-  name="popup_email"
-  label="Email"
-  value={popupEmail}
-  onChange={(e) => setPopupEmail(e.target.value)}
-  required
-/>
+            <TextInput
+              name="popup_email"
+              label="Email"
+              placeholder="e.g. john.doe@email.com"
+              value={popupEmail}
+              onChange={(e) => setPopupEmail(e.target.value)}
+              required
+            />
 
-<TextInput
-  name="popup_phone"
-  label="Phone"
-  value={popupPhone}
-  maxLength={10}
-  inputMode="numeric"
-  onChange={(e) =>
-    setPopupPhone(e.target.value.replace(/\D/g, ""))
-  }
-  required
-/>
+            <TextInput
+              name="popup_phone"
+              label="Phone"
+              placeholder="e.g. 9876543210"
+              value={popupPhone}
+              maxLength={14}
+              inputMode="numeric"
+              onChange={(e) =>
+                setPopupPhone(
+                  e.currentTarget.value.replace(/\D/g, "").slice(0, 14)
+                )
+              }
+              required
+            />
 
             {/* <Textarea name="popup_message" label="Message" required /> */}
-            <Button type='submit' loading={isSubmitting}>
+            <Button type="submit" loading={isSubmitting}>
               Submit
             </Button>
           </Stack>
         </fetcher.Form>
-        
       </Modal>
     </>
   );

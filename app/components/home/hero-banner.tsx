@@ -17,7 +17,8 @@ import LeadForm from "./LeadForm";
 /* ================= FORM VALIDATION ================= */
 const NAME_REGEX = /^[A-Za-z ]{2,50}$/;
 const EMAIL_REGEX = /^[a-zA-Z0-9._]{3,30}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const PHONE_REGEX = /^[0-9]{10}$/;
+// allows 10 to 12 digits
+const PHONE_REGEX = /^[0-9]{10,14}$/;
 
 /* ❌ COMMENTED — reCAPTCHA */
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -82,7 +83,7 @@ export default function HomeBanner({
     }
 
     if (!PHONE_REGEX.test(data.phone))
-      newErrors.phone = "Phone must be 10 digits (0–9)";
+      newErrors.phone = "Phone must be 10–12 digits";
 
     setErrors(newErrors);
 
@@ -379,6 +380,7 @@ export default function HomeBanner({
                       <TextInput
                         name="email"
                         label="Email"
+                        placeholder="e.g. john.doe@email.com"
                         error={errors.email}
                         onInput={(e) => {
                           const input = e.currentTarget;
@@ -393,13 +395,14 @@ export default function HomeBanner({
                         required
                         radius="md"
                         placeholder="9876543210"
-                        maxLength={10}
+                        maxLength={14}
                         error={errors.phone}
                         onChange={(e) => {
-                          e.currentTarget.value = e.currentTarget.value.replace(
-                            /\D/g,
-                            ""
-                          );
+                          // allow digits only + hard cap at 14
+                          e.currentTarget.value = e.currentTarget.value
+                            .replace(/\D/g, "")
+                            .slice(0, 14);
+
                           setErrors((er) => ({ ...er, phone: undefined }));
                         }}
                       />

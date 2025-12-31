@@ -3,7 +3,7 @@
 /* ================= REGEX ================= */
 export const NAME_REGEX = /^[A-Za-z ]{2,50}$/;
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-export const PHONE_REGEX = /^[0-9]{10}$/;
+export const PHONE_REGEX = /^[0-9]{10,14}$/;
 
 /* ================= VALIDATION ================= */
 export function validateLeadForm(data: {
@@ -26,7 +26,7 @@ export function validateLeadForm(data: {
   }
 
   if (!PHONE_REGEX.test(data.phone)) {
-    errors.phone = "Phone must be 14 digits (0–14)";
+    errors.phone = "Phone must be 10–14 digits";
   }
 
   return errors;

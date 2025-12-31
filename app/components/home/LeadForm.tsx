@@ -13,10 +13,9 @@ export default function LeadForm({ fetcher, isSubmitting }: any) {
         <TextInput
           name="popup_name"
           label="Name"
+          placeholder="e.g. John Doe"
           value={name}
-          onChange={(e) =>
-            setName(e.target.value.replace(/[^A-Za-z ]/g, ""))
-          }
+          onChange={(e) => setName(e.target.value.replace(/[^A-Za-z ]/g, ""))}
           required
         />
 
@@ -24,20 +23,21 @@ export default function LeadForm({ fetcher, isSubmitting }: any) {
         <TextInput
           name="popup_email"
           label="Email"
+          placeholder="e.g. john.doe@email.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
-        {/* PHONE – numbers only */}
         <TextInput
           name="popup_phone"
           label="Phone"
+          placeholder="e.g. 9876543210"
           value={phone}
           maxLength={14}
           inputMode="numeric"
           onChange={(e) =>
-            setPhone(e.target.value.replace(/\D/g, ""))
+            setPhone(e.currentTarget.value.replace(/\D/g, "").slice(0, 14))
           }
           required
         />
@@ -49,6 +49,3 @@ export default function LeadForm({ fetcher, isSubmitting }: any) {
     </fetcher.Form>
   );
 }
-
-
-
