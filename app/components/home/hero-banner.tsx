@@ -31,8 +31,8 @@ const Star = ({
   size?: number;
   color?: string;
 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={color}>
-    <path d="M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z" />
+  <svg width={size} height={size} viewBox='0 0 24 24' fill={color}>
+    <path d='M12 .587l3.668 7.568L24 9.748l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.596 0 9.748l8.332-1.593z' />
   </svg>
 );
 
@@ -144,7 +144,7 @@ export default function HomeBanner({
       </div>
       {/* ⭐ FOREGROUND CONTENT */}
       <div style={{ position: "relative", zIndex: 10 }}>
-        <Container size="xl" style={{ maxWidth: 1400, padding: 0 }}>
+        <Container size='xl' style={{ maxWidth: 1400, padding: 0 }}>
           {/* ⭐ TOP BAR */}
           <div
             style={{
@@ -161,8 +161,8 @@ export default function HomeBanner({
             }}
           >
             <Image
-              src="/logo.png"
-              alt="Fynocrat"
+              src='/logo.png'
+              alt='Fynocrat'
               width={isMobile ? 180 : 190}
               style={{
                 width: isMobile ? 180 : 190,
@@ -292,7 +292,7 @@ export default function HomeBanner({
                         height: isMobile ? 24 : 30,
                       }}
                     >
-                      <Star size={isMobile ? 24 : 30} color="#FFE7A4" />
+                      <Star size={isMobile ? 24 : 30} color='#FFE7A4' />
                       <div
                         style={{
                           position: "absolute",
@@ -303,7 +303,7 @@ export default function HomeBanner({
                           overflow: "hidden",
                         }}
                       >
-                        <Star size={isMobile ? 24 : 30} color="#FFC043" />
+                        <Star size={isMobile ? 24 : 30} color='#FFC043' />
                       </div>
                     </div>
                   </div>
@@ -329,7 +329,7 @@ export default function HomeBanner({
 
             {!isMobile && (
               <div
-                id="contact-form-wrapper"
+                id='contact-form-wrapper'
                 style={{
                   marginTop: isMobile ? 20 : -10,
                   display: "flex",
@@ -350,23 +350,23 @@ export default function HomeBanner({
                 </Text>
 
                 <Paper
-                  radius="md"
-                  shadow="xl"
-                  className="form-box"
+                  radius='md'
+                  shadow='xl'
+                  className='form-box'
                   style={{ width: isMobile ? "100%" : 420 }}
                 >
                   <fetcher.Form
                     ref={mainFormRef}
-                    method="post"
+                    method='post'
                     onSubmit={onSubmit}
                   >
                     <Stack>
                       <TextInput
-                        name="name"
-                        label="Name"
+                        name='name'
+                        label='Name'
                         required
-                        radius="md"
-                        placeholder="john doe"
+                        radius='md'
+                        placeholder='john doe'
                         error={errors.name}
                         onChange={(e) => {
                           e.currentTarget.value = e.currentTarget.value.replace(
@@ -378,9 +378,9 @@ export default function HomeBanner({
                       />
 
                       <TextInput
-                        name="email"
-                        label="Email"
-                        placeholder="e.g. john.doe@email.com"
+                        name='email'
+                        label='Email'
+                        placeholder='e.g. john.doe@email.com'
                         error={errors.email}
                         onInput={(e) => {
                           const input = e.currentTarget;
@@ -390,11 +390,11 @@ export default function HomeBanner({
                       />
 
                       <TextInput
-                        name="phone"
-                        label="Phone"
+                        name='phone'
+                        label='Phone'
                         required
-                        radius="md"
-                        placeholder="9876543210"
+                        radius='md'
+                        placeholder='9876543210'
                         maxLength={14}
                         error={errors.phone}
                         onChange={(e) => {
@@ -439,9 +439,9 @@ export default function HomeBanner({
                     */}
 
                       <Button
-                        type="submit"
+                        type='submit'
                         fullWidth
-                        radius="md"
+                        radius='md'
                         disabled={isSubmitting}
                         loading={isSubmitting}
                         style={{ height: 45, fontSize: 16, fontWeight: 600 }}
@@ -457,8 +457,8 @@ export default function HomeBanner({
             {/* ⭐ MOBILE CTA BUTTON */}
             {isMobile && (
               <Button
-                radius="xl"
-                size="md"
+                radius='xl'
+                size='md'
                 style={{
                   marginTop: 24,
                   backgroundColor: "#0080ff",
@@ -489,7 +489,7 @@ export default function HomeBanner({
         }}
       >
         <Button
-          radius="xl"
+          radius='xl'
           style={{
             backgroundColor: "#0080ff",
             color: "#fff",
