@@ -195,17 +195,22 @@ export default function Home() {
   useEffect(() => {
     setIsSubmitting(fetcher.state === "submitting");
     if (fetcher.data?.success) {
-      showNotification({
-        title: "Success",
-        message: fetcher.data.message,
-        color: "green",
-        position: "top-center", // ✅ THIS IS THE KEY
-        autoClose: 3000,
-        withCloseButton: true,
-      });
       mainFormRef.current?.reset();
       popupFormRef.current?.reset();
       setFormOpen(false);
+      // Redirect to thank-you page once submission succeeds
+      if (typeof window !== "undefined") {
+        window.location.href = "/thankyou";
+      }
+    } else if (fetcher.data && fetcher.data.success === false) {
+      showNotification({
+        title: "Submission failed",
+        message: fetcher.data.message,
+        color: "red",
+        position: "top-center",
+        autoClose: 3000,
+        withCloseButton: true,
+      });
     }
   }, [fetcher.state, fetcher.data]);
 
