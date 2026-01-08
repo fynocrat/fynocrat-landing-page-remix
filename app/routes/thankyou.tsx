@@ -12,12 +12,11 @@ import {
 import { IconCheck } from "@tabler/icons-react";
 import { Link } from "react-router";
 import Footer from "~/components/footer";
-
-/* -------------------------------------------------------------------------- */
-/*                              SIMPLE HEADER                                 */
-/* -------------------------------------------------------------------------- */
+import { useMediaQuery } from "@mantine/hooks";
 
 function LandingHeader() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   return (
     <Box
       style={{
@@ -29,30 +28,38 @@ function LandingHeader() {
         size="xl"
         style={{
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          padding: "16px 100px",
+          justifyContent: "space-between",
           maxWidth: 1400,
+          paddingLeft: isMobile ? 16 : 100,
+          paddingRight: isMobile ? 16 : 100,
+          paddingTop: isMobile ? 12 : 16,
+          paddingBottom: isMobile ? 12 : 16,
+          gap: 12,
         }}
       >
+        {/* LOGO */}
         <Image
           src="/logo.png"
           alt="Fynocrat"
-          w={190}
-          h="auto"
           style={{
-            width: 190,
+            width: isMobile ? 120 : 190,
             height: "auto",
             objectFit: "contain",
+            flexShrink: 0,
           }}
         />
+
+        {/* SEBI NUMBER */}
         <Text
           style={{
-            color: "#fff",
-            fontSize: 20,
+            color: "#ffffff",
+            fontSize: isMobile ? 11 : 20,
+            fontWeight: 100,
             opacity: 0.9,
             whiteSpace: "nowrap",
-            fontWeight: 100,
+            textAlign: "right",
+            flexShrink: 0,
           }}
         >
           SEBI Registration No. – INH000011918
